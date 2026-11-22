@@ -33,7 +33,7 @@ new_card_visual = '''<div class="aspect-[4/3] bg-gradient-to-br from-ocean-950 t
 old_modal_visual = '''<div id="modal-visual" class="aspect-[16/10] bg-gradient-to-br from-ocean-950 to-ocean-900 flex flex-col items-center justify-center p-8 text-center text-white relative">
         <span id="modal-category" class="px-3 py-1 rounded-full bg-candiGold-400 text-ocean-950 font-mono text-xs font-bold mb-3"></span>
         <div id="modal-title-overlay" class="text-2xl font-extrabold"></div>
-        <div class="text-xs text-sky-200 mt-2">Pratinjau Foto Fasilitas Resolusi Penuh (Diunggah via Pages CMS)</div>
+        
       </div>'''
 
 new_modal_visual = '''<div id="modal-visual" class="aspect-[16/10] bg-gradient-to-br from-ocean-950 to-ocean-900 flex flex-col items-center justify-center p-8 text-center text-white relative overflow-hidden">
@@ -41,7 +41,7 @@ new_modal_visual = '''<div id="modal-visual" class="aspect-[16/10] bg-gradient-t
         <div id="modal-overlay-bg" class="hidden absolute inset-0 bg-gradient-to-t from-ocean-950/90 via-transparent to-black/30"></div>
         <span id="modal-category" class="relative z-10 px-3 py-1 rounded-full bg-candiGold-400 text-ocean-950 font-mono text-xs font-bold mb-3 shadow"></span>
         <div id="modal-title-overlay" class="relative z-10 text-2xl font-extrabold drop-shadow"></div>
-        <div id="modal-sub-overlay" class="relative z-10 text-xs text-sky-200 mt-2">Pratinjau Foto Fasilitas Resolusi Penuh (Diunggah via Pages CMS)</div>
+        
       </div>'''
 
 old_open_modal = '''function openFacilityModal(id) {
