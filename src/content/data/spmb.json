@@ -1,5 +1,5 @@
 {
-  "aktif": true,
+  "aktif": false,
   "tahun_ajaran": "2026/2027",
   "banner": {
     "label": "SPMB 2026/2027",
@@ -17,10 +17,26 @@
   "pendaftaran": {
     "link_formulir": "https://forms.google.com",
     "label_tombol": "Isi Formulir Online (Google Forms)",
-    "brosur_pdf": "",
     "kontak_wa": "6281234567890",
     "pesan_wa": "Halo Panitia SPMB SMP Wijaya Sukodono, saya ingin bertanya mengenai pendaftaran siswa baru."
   },
+  "jadwal": [
+    {
+      "gelombang": "Gelombang I (Inden)",
+      "waktu": "Februari – April 2026",
+      "badge": "Inden"
+    },
+    {
+      "gelombang": "Gelombang II (Reguler)",
+      "waktu": "Mei – Juli 2026",
+      "badge": "Reguler"
+    },
+    {
+      "gelombang": "Jam Layanan Tatap Muka",
+      "waktu": "Senin–Sabtu, 07.30–13.00 WIB",
+      "badge": "Offline"
+    }
+  ],
   "alur": [
     {
       "langkah": "01",
@@ -49,23 +65,6 @@
     "Fotokopi Akta Kelahiran sebanyak 2 lembar.",
     "Fotokopi NISN (Nomor Induk Siswa Nasional) & KIP/PKH (jika memiliki).",
     "Pas foto berwarna ukuran 3×4 sebanyak 4 lembar."
-  ],
-  "jadwal": [
-    {
-      "gelombang": "Gelombang I (Inden)",
-      "waktu": "Februari – April 2026",
-      "badge": "Inden"
-    },
-    {
-      "gelombang": "Gelombang II (Reguler)",
-      "waktu": "Mei – Juli 2026",
-      "badge": "Reguler"
-    },
-    {
-      "gelombang": "Jam Layanan Tatap Muka",
-      "waktu": "Senin–Sabtu, 07.30–13.00 WIB",
-      "badge": "Offline"
-    }
   ],
   "beasiswa_kip": {
     "judul": "Program Keringanan Biaya, KIP, & Jalur Afirmasi",
