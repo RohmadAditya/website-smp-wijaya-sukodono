@@ -8,11 +8,25 @@ const categories = ['Semua', 'Pimpinan', 'Guru Mapel', 'Staf TU'];
 
 <BaseLayout title="Direktori Guru & Staf — SMP Wijaya Sukodono" description="Daftar tenaga pendidik profesional dan staf kependidikan SMP Wijaya Sukodono yang mendampingi proses belajar siswa." activeNav="guru">
   <!-- Page Header -->
-  <div class="bg-ocean-950 text-white py-12 lg:py-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-xs font-mono text-wijayaCyan-400 uppercase tracking-wider mb-2">Beranda / Guru &amp; Staf</div>
-      <h1 class="text-3xl sm:text-4xl font-extrabold">Direktori Tenaga Pendidik &amp; Kependidikan</h1>
-      <p class="text-sky-100/85 mt-2 max-w-2xl">Tenaga pengajar berdedikasi dan staf Tata Usaha yang mendampingi perkembangan belajar siswa SMP Wijaya Sukodono.</p>
+  <div class="relative bg-ocean-950 text-white py-14 lg:py-20 overflow-hidden">
+    <!-- Background Image with Gradient Overlay -->
+    <img
+      src="/images/hero/hero-guru.jpg"
+      alt="Dewan Guru dan Tenaga Pendidik SMP Wijaya Sukodono"
+      class="absolute inset-0 w-full h-full object-cover object-center"
+      loading="eager"
+      fetchpriority="high"
+    />
+    <div class="absolute inset-0 bg-gradient-to-r from-ocean-950/95 via-ocean-950/90 to-ocean-900/80"></div>
+    <div class="absolute inset-0 bg-ocean-950/40"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-ocean-900/80 border border-wijayaCyan-400/30 text-xs font-mono text-wijayaCyan-300 uppercase tracking-wider mb-3">
+        <span class="w-1.5 h-1.5 rounded-full bg-candiGold-400"></span>
+        Beranda / Guru &amp; Staf
+      </div>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">Direktori Tenaga Pendidik &amp; Kependidikan</h1>
+      <p class="text-sky-100/90 mt-3 max-w-2xl text-base sm:text-lg leading-relaxed">Tenaga pengajar berdedikasi dan staf Tata Usaha yang mendampingi perkembangan akademik dan karakter siswa SMP Wijaya Sukodono.</p>
     </div>
   </div>
 

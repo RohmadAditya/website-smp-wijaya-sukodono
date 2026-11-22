@@ -5,16 +5,30 @@ import pengaturan from '../content/data/pengaturan.json';
 
 <BaseLayout title="Informasi SPMB 2026/2027 — SMP Wijaya Sukodono" description="Sistem Penerimaan Murid Baru (SPMB) SMP Wijaya Sukodono Tahun Ajaran 2026/2027: alur pendaftaran, syarat berkas, jadwal gelombang, dan formulir pendaftaran." activeNav="ppdb">
   <!-- Page Header -->
-  <div class="bg-ocean-950 text-white py-12 lg:py-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="relative bg-ocean-950 text-white py-14 lg:py-20 overflow-hidden">
+    <!-- Background Image with Gradient Overlay -->
+    <img
+      src="/images/hero/hero-ppdb.jpg"
+      alt="Penerimaan Peserta Didik Baru SPMB SMP Wijaya Sukodono"
+      class="absolute inset-0 w-full h-full object-cover object-center"
+      loading="eager"
+      fetchpriority="high"
+    />
+    <div class="absolute inset-0 bg-gradient-to-r from-ocean-950/95 via-ocean-950/90 to-ocean-900/80"></div>
+    <div class="absolute inset-0 bg-ocean-950/40"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-wrap items-center gap-3 mb-3">
-        <span class="text-xs font-mono text-wijayaCyan-400 uppercase tracking-wider">Beranda / SPMB</span>
-        <span class={`px-2.5 py-0.5 rounded-full text-xs font-mono font-bold ${pengaturan.ppdb_aktif ? 'bg-candiGold-400 text-ocean-950' : 'bg-slate-600 text-white'}`}>
+        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-ocean-900/80 border border-wijayaCyan-400/30 text-xs font-mono text-wijayaCyan-300 uppercase tracking-wider">
+          <span class="w-1.5 h-1.5 rounded-full bg-candiGold-400"></span>
+          Beranda / SPMB
+        </span>
+        <span class={`px-3 py-1 rounded-full text-xs font-mono font-bold shadow-sm ${pengaturan.ppdb_aktif ? 'bg-candiGold-400 text-ocean-950' : 'bg-slate-600 text-white'}`}>
           STATUS: {pengaturan.ppdb_aktif ? 'DIBUKA' : 'DITUTUP'}
         </span>
       </div>
-      <h1 class="text-3xl sm:text-4xl font-extrabold">Sistem Penerimaan Murid Baru (SPMB) 2026/2027</h1>
-      <p class="text-sky-100/85 mt-2 max-w-2xl">Panduan lengkap alur pendaftaran, kelengkapan berkas, jadwal gelombang, dan informasi layanan pendaftaran calon siswa baru SMP Wijaya Sukodono.</p>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">Sistem Penerimaan Murid Baru (SPMB) 2026/2027</h1>
+      <p class="text-sky-100/90 mt-3 max-w-2xl text-base sm:text-lg leading-relaxed">Panduan lengkap alur pendaftaran, kelengkapan berkas, jadwal gelombang, dan informasi layanan pendaftaran calon siswa baru SMP Wijaya Sukodono.</p>
     </div>
   </div>
 
