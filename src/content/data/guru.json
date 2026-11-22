@@ -4,57 +4,56 @@
       "nama": "Yennis Fitriyan, S.E., M.Pd.",
       "jabatan": "Kepala Sekolah",
       "bidang": "Pimpinan",
-      "inisial": "YF",
-      "foto": ""
+      "inisial": "YF"
     },
     {
       "nama": "Wakil Kepala Bidang Kurikulum",
       "jabatan": "Wakasek Kurikulum",
       "bidang": "Pimpinan",
-      "inisial": "WK",
-      "foto": ""
+      "inisial": "WK"
     },
     {
       "nama": "Wakil Kepala Bidang Kesiswaan",
       "jabatan": "Wakasek Kesiswaan",
       "bidang": "Pimpinan",
-      "inisial": "KS",
-      "foto": ""
+      "inisial": "KS"
     },
     {
       "nama": "Guru Bahasa Indonesia",
       "jabatan": "Mata Pelajaran Bahasa Indonesia",
       "bidang": "Guru Mapel",
-      "inisial": "BI",
-      "foto": ""
+      "inisial": "BI"
     },
     {
       "nama": "Guru Matematika",
       "jabatan": "Mata Pelajaran Matematika",
       "bidang": "Guru Mapel",
-      "inisial": "MT",
-      "foto": ""
+      "inisial": "MT"
     },
     {
       "nama": "Guru IPA Terpadu",
       "jabatan": "Mata Pelajaran IPA",
       "bidang": "Guru Mapel",
-      "inisial": "IP",
-      "foto": ""
+      "inisial": "IP"
     },
     {
       "nama": "Pembina Olahraga & Voli",
       "jabatan": "Guru PJOK & Pembina Ekskul",
       "bidang": "Guru Mapel",
-      "inisial": "PJ",
-      "foto": ""
+      "inisial": "PJ"
     },
     {
       "nama": "Kepala Tata Usaha",
       "jabatan": "Layanan Administrasi & SPMB",
       "bidang": "Staf TU",
-      "inisial": "TU",
-      "foto": ""
+      "inisial": "TU"
+    },
+    {
+      "nama": "Rohmad Aditya",
+      "jabatan": "TIK",
+      "bidang": "Guru Mapel",
+      "inisial": "PJ",
+      "foto": "/images/uploads/logo-ra.png"
     }
   ]
 }
