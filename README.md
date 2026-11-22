@@ -8,7 +8,7 @@ Dibangun dengan arsitektur **GitOps Static Site** berbasis **Astro + Tailwind CS
 
 - **Ultra Low-Maintenance & Zero-Cost Hosting**: Hosting di Cloudflare Pages (Rp 0), penyimpanan di GitHub (Rp 0), CMS via Pages CMS (Rp 0). Biaya rutin hanya domain resmi `.sch.id` (± Rp 60rb/tahun).
 - **8 Rute Halaman Lengkap**:
-  1. `/` — Beranda (Hero, Sambutan Kepsek, Program Unggulan, Pratinjau Fasilitas, Berita Terbaru, CTA SPMB)
+  1. `/` — Beranda (Hero, Sambutan Kepsek, Program Unggulan, Pimpinan Sekolah, Pratinjau Fasilitas, Berita Terbaru, CTA SPMB)
   2. `/profil` — Profil, Visi Misi, Data Kemdikbud, & Filosofi Lambang Sekolah
   3. `/fasilitas` — Katalog Sarana Prasarana dengan Filter Kategori & Lightbox Modal
   4. `/guru` — Direktori Guru & Tenaga Kependidikan dengan Filter Bidang & Live Search

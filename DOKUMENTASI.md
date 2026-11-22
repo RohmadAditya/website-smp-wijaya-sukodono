@@ -37,7 +37,7 @@ Pemilihan arsitektur Static Site berbasis Astro dan Cloudflare Pages yang dikomb
 
 | Halaman / Rute | Tipe Data | CMS? | Ringkasan Konten & Fitur |
 | :--- | :--- | :---: | :--- |
-| **1. Beranda (`/`)** | Dinamis (JSON + 3 Berita) | Ya | Top bar SPMB (kondisional), Hero + Signature Experience Card (6+ Dekade / Purna Widya ke-LXIV), Sambutan Kepala Sekolah, 4 Program Unggulan, Pratinjau Fasilitas, 3 Berita Terbaru, CTA SPMB. |
+| **1. Beranda (`/`)** | Dinamis (JSON + 3 Berita) | Ya | Top bar SPMB (kondisional), Hero + Signature Experience Card (6+ Dekade / Purna Widya ke-LXIV), Sambutan Kepala Sekolah, 4 Program Unggulan, Pimpinan Sekolah, Pratinjau Fasilitas, 3 Berita Terbaru, CTA SPMB. |
 | **2. Tentang Kami (`/profil`)** | File Tunggal (MD/YAML) | Ya | Identitas resmi (NPSN 20540036, Akreditasi B), Sejarah singkat, Visi & Misi, serta Filosofi Logo SMP Wijaya Sukodono. |
 | **3. Fasilitas (`/fasilitas`)** | Koleksi JSON | Ya | Katalog sarana prasarana sekolah (Ruang Kelas, Lab Komputer, Perpustakaan, Lab IPA, Lapangan Olahraga, Musholla) dengan filter kategori dan modal Lightbox 'Lihat Foto'. |
 | **4. Guru & Staf (`/guru`)** | Koleksi JSON | Ya | Blok khusus Pimpinan Sekolah (Kepala Sekolah & Wakasek), fitur pencarian & filter bidang, serta grid direktori guru mata pelajaran dan staf TU. |
