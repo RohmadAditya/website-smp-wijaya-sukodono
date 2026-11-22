@@ -3,7 +3,7 @@ media:
   output: /images/uploads
 content:
   - name: berita
-    label: Berita & Pengumuman
+    label: "Berita & Pengumuman"
     type: collection
     path: src/content/berita
     filename: "{year}-{month}-{day}-{primary}.md"
@@ -11,160 +11,160 @@ content:
       fields: [title, kategori, tanggal, draft]
       default: { sort: tanggal, order: desc }
     fields:
-      - { name: title, label: Judul Berita, type: string, required: true }
-      - { name: tanggal, label: Tanggal Publikasi, type: date, required: true }
+      - { name: title, label: "Judul Berita", type: string, required: true }
+      - { name: tanggal, label: "Tanggal Publikasi", type: date, required: true }
       - name: kategori
-        label: Kategori
+        label: "Kategori"
         type: select
         required: true
         options: { values: [Kegiatan, Prestasi, Pengumuman, Akademik] }
-      - { name: thumbnail, label: Foto Sampul (Landscape, maks 1 MB), type: image }
-      - { name: ringkasan, label: Ringkasan Singkat (1-2 kalimat), type: text, required: true }
-      - { name: draft, label: Simpan sebagai Draft, type: boolean, default: false }
-      - { name: body, label: Isi Berita, type: rich-text }
+      - { name: thumbnail, label: "Foto Sampul (Landscape, maks 1 MB)", type: image }
+      - { name: ringkasan, label: "Ringkasan Singkat (1-2 kalimat)", type: text, required: true }
+      - { name: draft, label: "Simpan sebagai Draft", type: boolean, default: false }
+      - { name: body, label: "Isi Berita", type: rich-text }
 
   - name: spmb
-    label: Pengaturan SPMB (Penerimaan Siswa Baru)
+    label: "Pengaturan SPMB (Penerimaan Siswa Baru)"
     type: file
     path: src/content/data/spmb.json
     fields:
-      - { name: aktif, label: Status SPMB Dibuka? (Centang untuk Membuka, Hapus Centang untuk Menutup), type: boolean, default: true }
-      - { name: tahun_ajaran, label: Tahun Ajaran (contoh: 2026/2027), type: string, required: true }
+      - { name: aktif, label: "Status SPMB Dibuka? (Aktif/Tutup)", type: boolean, default: true }
+      - { name: tahun_ajaran, label: "Tahun Ajaran (contoh: 2026/2027)", type: string, required: true }
       - name: banner
-        label: Notifikasi Banner TopBar (Muncul jika SPMB Dibuka)
+        label: "Notifikasi Banner TopBar (Muncul jika SPMB Dibuka)"
         type: object
         fields:
-          - { name: label, label: Label Badge Banner, type: string }
-          - { name: teks, label: Teks Pengumuman Banner, type: string }
+          - { name: label, label: "Label Badge Banner", type: string }
+          - { name: teks, label: "Teks Pengumuman Banner", type: string }
       - name: hero
-        label: Bagian Header / Hero SPMB
+        label: "Bagian Header / Hero SPMB"
         type: object
         fields:
-          - { name: judul, label: Judul Halaman SPMB, type: string, required: true }
-          - { name: deskripsi, label: Deskripsi Singkat, type: text, required: true }
-          - { name: foto, label: Foto Latar Belakang Hero (16:9), type: image }
+          - { name: judul, label: "Judul Halaman SPMB", type: string, required: true }
+          - { name: deskripsi, label: "Deskripsi Singkat", type: text, required: true }
+          - { name: foto, label: "Foto Latar Belakang Hero (16:9)", type: image }
       - name: pesan_tutup
-        label: Pesan Saat Pendaftaran Ditutup (Aktif = Mati)
+        label: "Pesan Saat Pendaftaran Ditutup (Aktif = Mati)"
         type: object
         fields:
-          - { name: judul, label: Judul Pemberitahuan Penutupan, type: string }
-          - { name: keterangan, label: Isi Pesan / Instruksi ke Calon Siswa, type: text }
+          - { name: judul, label: "Judul Pemberitahuan Penutupan", type: string }
+          - { name: keterangan, label: "Isi Pesan / Instruksi ke Calon Siswa", type: text }
       - name: pendaftaran
-        label: Tautan Formulir & Kontak Layanan
+        label: "Tautan Formulir & Kontak Layanan"
         type: object
         fields:
-          - { name: link_formulir, label: Tautan Google Forms / Portal Online, type: string }
-          - { name: label_tombol, label: Teks Tombol Formulir, type: string }
-          - { name: brosur_pdf, label: File Brosur / Panduan SPMB (PDF / Gambar), type: file }
-          - { name: kontak_wa, label: Nomor WhatsApp Panitia (contoh: 6281234567890), type: string }
-          - { name: pesan_wa, label: Pesan WhatsApp Otomatis (Saat Tombol Diklik), type: string }
+          - { name: link_formulir, label: "Tautan Google Forms / Portal Online", type: string }
+          - { name: label_tombol, label: "Teks Tombol Formulir", type: string }
+          - { name: brosur_pdf, label: "File Brosur / Panduan SPMB (PDF / Gambar)", type: file }
+          - { name: kontak_wa, label: "Nomor WhatsApp Panitia (contoh: 6281234567890)", type: string }
+          - { name: pesan_wa, label: "Pesan WhatsApp Otomatis (Saat Tombol Diklik)", type: string }
       - name: jadwal
-        label: Jadwal Gelombang & Jam Layanan
+        label: "Jadwal Gelombang & Jam Layanan"
         type: object
         list: true
         fields:
-          - { name: gelombang, label: Nama Gelombang / Jam Layanan, type: string, required: true }
-          - { name: waktu, label: Rentang Tanggal / Waktu, type: string, required: true }
-          - { name: badge, label: Label Kategori (contoh: Inden, Reguler, Offline), type: string }
+          - { name: gelombang, label: "Nama Gelombang / Jam Layanan", type: string, required: true }
+          - { name: waktu, label: "Rentang Tanggal / Waktu", type: string, required: true }
+          - { name: badge, label: "Label Kategori (contoh: Inden, Reguler, Offline)", type: string }
       - name: alur
-        label: Alur Pendaftaran (Langkah 01 - 04)
+        label: "Alur Pendaftaran (Langkah 01 - 04)"
         type: object
         list: true
         fields:
-          - { name: langkah, label: Nomor Langkah (01, 02, dst), type: string, required: true }
-          - { name: judul, label: Judul Langkah, type: string, required: true }
-          - { name: deskripsi, label: Penjelasan Langkah, type: text, required: true }
+          - { name: langkah, label: "Nomor Langkah (01, 02, dst)", type: string, required: true }
+          - { name: judul, label: "Judul Langkah", type: string, required: true }
+          - { name: deskripsi, label: "Penjelasan Langkah", type: text, required: true }
       - name: syarat_berkas
-        label: Persyaratan Berkas Pendaftaran
+        label: "Persyaratan Berkas Pendaftaran"
         type: string
         list: true
       - name: beasiswa_kip
-        label: Informasi Beasiswa & KIP
+        label: "Informasi Beasiswa & KIP"
         type: object
         fields:
-          - { name: judul, label: Judul Informasi Beasiswa, type: string }
-          - { name: keterangan, label: Penjelasan Keringanan Biaya & Afirmasi, type: text }
+          - { name: judul, label: "Judul Informasi Beasiswa", type: string }
+          - { name: keterangan, label: "Penjelasan Keringanan Biaya & Afirmasi", type: text }
       - name: faq
-        label: FAQ (Pertanyaan yang Sering Diajukan)
+        label: "FAQ (Pertanyaan yang Sering Diajukan)"
         type: object
         list: true
         fields:
-          - { name: pertanyaan, label: Pertanyaan, type: string, required: true }
-          - { name: jawaban, label: Jawaban Lengkap, type: text, required: true }
+          - { name: pertanyaan, label: "Pertanyaan", type: string, required: true }
+          - { name: jawaban, label: "Jawaban Lengkap", type: text, required: true }
 
   - name: pengaturan
-    label: Pengaturan Sekolah & Beranda
+    label: "Pengaturan Sekolah & Beranda"
     type: file
     path: src/content/data/pengaturan.json
     fields:
-      - { name: nama_sekolah, label: Nama Resmi Sekolah, type: string, required: true }
-      - { name: npsn, label: NPSN, type: string }
-      - { name: akreditasi, label: Akreditasi, type: string }
+      - { name: nama_sekolah, label: "Nama Resmi Sekolah", type: string, required: true }
+      - { name: npsn, label: "NPSN", type: string }
+      - { name: akreditasi, label: "Akreditasi", type: string }
       - name: sambutan_kepsek
-        label: Sambutan Kepala Sekolah
+        label: "Sambutan Kepala Sekolah"
         type: object
         fields:
-          - { name: nama, label: Nama Kepala Sekolah, type: string }
-          - { name: foto, label: Foto Kepala Sekolah, type: image }
-          - { name: pesan, label: Isi Sambutan Singkat, type: text }
+          - { name: nama, label: "Nama Kepala Sekolah", type: string }
+          - { name: foto, label: "Foto Kepala Sekolah", type: image }
+          - { name: pesan, label: "Isi Sambutan Singkat", type: text }
       - name: kontak
-        label: Informasi Kontak Resmi
+        label: "Informasi Kontak Resmi"
         type: object
         fields:
-          - { name: alamat, label: Alamat Lengkap, type: text }
-          - { name: telepon, label: Telepon Sekolah, type: string }
-          - { name: whatsapp, label: Nomor WA TU (62812xxx), type: string }
-          - { name: email, label: Email Resmi Sekolah, type: string }
-          - { name: instagram, label: Link Instagram Sekolah, type: string }
+          - { name: alamat, label: "Alamat Lengkap", type: text }
+          - { name: telepon, label: "Telepon Sekolah", type: string }
+          - { name: whatsapp, label: "Nomor WA TU (62812xxx)", type: string }
+          - { name: email, label: "Email Resmi Sekolah", type: string }
+          - { name: instagram, label: "Link Instagram Sekolah", type: string }
 
   - name: fasilitas
-    label: Fasilitas Sekolah
+    label: "Fasilitas Sekolah"
     type: file
     path: src/content/data/fasilitas.json
     fields:
       - name: daftar
-        label: Daftar Fasilitas
+        label: "Daftar Fasilitas"
         type: object
         list: true
         fields:
-          - { name: id, label: ID Unik, type: number, required: true }
-          - { name: nama, label: Nama Fasilitas, type: string, required: true }
+          - { name: id, label: "ID Unik", type: number, required: true }
+          - { name: nama, label: "Nama Fasilitas", type: string, required: true }
           - name: kategori
-            label: Kategori
+            label: "Kategori"
             type: select
             options: { values: [Akademik, Laboratorium, Olahraga & Ibadah] }
-          - { name: deskripsi, label: Deskripsi Singkat, type: text }
-          - { name: foto, label: Foto Sampul Utama (4:3, maks 1 MB), type: image }
+          - { name: deskripsi, label: "Deskripsi Singkat", type: text }
+          - { name: foto, label: "Foto Sampul Utama (4:3, maks 1 MB)", type: image }
           - name: galeri
-            label: Foto Tambahan / Galeri (Bisa lebih dari 1 foto)
+            label: "Foto Tambahan / Galeri (Bisa lebih dari 1 foto)"
             type: image
             list: true
 
   - name: guru
-    label: Direktori Guru & Staf
+    label: "Direktori Guru & Staf"
     type: file
     path: src/content/data/guru.json
     fields:
       - name: daftar
-        label: Daftar Tenaga Pendidik & Kependidikan
+        label: "Daftar Tenaga Pendidik & Kependidikan"
         type: object
         list: true
         fields:
-          - { name: nama, label: Nama Lengkap & Gelar, type: string, required: true }
-          - { name: jabatan, label: Jabatan / Mata Pelajaran, type: string, required: true }
+          - { name: nama, label: "Nama Lengkap & Gelar", type: string, required: true }
+          - { name: jabatan, label: "Jabatan / Mata Pelajaran", type: string, required: true }
           - name: bidang
-            label: Kelompok
+            label: "Kelompok"
             type: select
             options: { values: [Pimpinan, Guru Mapel, Staf TU] }
-          - { name: inisial, label: Inisial Avatar (2 Huruf), type: string }
-          - { name: foto, label: Foto Profil, type: image }
+          - { name: inisial, label: "Inisial Avatar (2 Huruf)", type: string }
+          - { name: foto, label: "Foto Profil", type: image }
 
   - name: profil
-    label: Halaman Profil Sekolah
+    label: "Halaman Profil Sekolah"
     type: file
     path: src/content/data/profil.md
     fields:
-      - { name: title, label: Judul Halaman, type: string }
-      - { name: visi, label: Visi Sekolah, type: text }
-      - { name: misi, label: Daftar Misi, type: string, list: true }
-      - { name: body, label: Sejarah & Profil Lengkap, type: rich-text }
+      - { name: title, label: "Judul Halaman", type: string }
+      - { name: visi, label: "Visi Sekolah", type: text }
+      - { name: misi, label: "Daftar Misi", type: string, list: true }
+      - { name: body, label: "Sejarah & Profil Lengkap", type: rich-text }
