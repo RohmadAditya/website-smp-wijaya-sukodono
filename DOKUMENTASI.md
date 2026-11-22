@@ -33,18 +33,19 @@ Pemilihan arsitektur Static Site berbasis Astro dan Cloudflare Pages yang dikomb
 2. **Editor Konten (Guru / Operator TU / Pembina OSIS)**: Pengguna non-teknis yang membutuhkan antarmuka penulisan sederhana layaknya Microsoft Word untuk mengunggah berita, foto kegiatan, pembaruan data guru/fasilitas, serta menyalakan atau mematikan pengumuman SPMB.
 3. **Maintainer Teknis (Alumni / Developer)**: Bertanggung jawab pada perancangan awal, deployment, konfigurasi domain .sch.id, dan pelatihan singkat. Target intervensi pasca-rilis adalah kurang dari 2 jam per tahun.
 
-### 1.3 Ruang Lingkup & Peta Situs (8 Halaman Utama)
+### 1.3 Ruang Lingkup & Peta Situs (9 Halaman Utama)
 
 | Halaman / Rute | Tipe Data | CMS? | Ringkasan Konten & Fitur |
 | :--- | :--- | :---: | :--- |
 | **1. Beranda (`/`)** | Dinamis (JSON + 3 Berita) | Ya | Top bar SPMB (kondisional), Hero + Signature Experience Card (6+ Dekade / Purna Widya ke-LXIV), Sambutan Kepala Sekolah, 4 Program Unggulan, Pimpinan Sekolah, Pratinjau Fasilitas, 3 Berita Terbaru, CTA SPMB. |
 | **2. Tentang Kami (`/profil`)** | File Tunggal (MD/YAML) | Ya | Identitas resmi (NPSN 20540036, Akreditasi B), Sejarah singkat, Visi & Misi, serta Filosofi Logo SMP Wijaya Sukodono. |
 | **3. Fasilitas (`/fasilitas`)** | Koleksi JSON | Ya | Katalog sarana prasarana sekolah (Ruang Kelas, Lab Komputer, Perpustakaan, Lab IPA, Lapangan Olahraga, Musholla) dengan filter kategori dan modal Lightbox 'Lihat Foto'. |
-| **4. Guru & Staf (`/guru`)** | Koleksi JSON | Ya | Blok khusus Pimpinan Sekolah (Kepala Sekolah & Wakasek), fitur pencarian & filter bidang, serta grid direktori guru mata pelajaran dan staf TU. |
-| **5. Berita (`/berita`)** | Koleksi Markdown | Ya | Artikel unggulan terbaru, pencarian judul, filter kategori (Kegiatan, Prestasi, Pengumuman, Akademik), dan daftar arsip berita. |
-| **6. Detail Berita (`/berita/[id]`)** | Pre-rendered Dinamis | Ya | Halaman bacaan artikel penuh, foto sampul 16:9, tombol bagikan langsung ke WhatsApp & salin tautan, serta berita terkait. |
-| **7. Info SPMB (`/spmb` & `/ppdb`)** | File Tunggal (JSON) | Ya | Status SPMB (Dibuka/Ditutup), tahun ajaran, pesan penutupan, 4 langkah alur pendaftaran, syarat berkas, jadwal gelombang, info beasiswa/KIP, unduh brosur PDF, FAQ interaktif, serta tautan formulir Google Forms & WA panitia. Rute `/ppdb` otomatis dialihkan ke `/spmb`. |
-| **8. Kontak (`/kontak`)** | Global Config (JSON) | Ya | Alamat lengkap Desa Pekarungan Sukodono, nomor telepon (031) 8830995, tombol WhatsApp TU, email resmi @smpwijayasukodono.sch.id, jam layanan, dan embed Google Maps. |
+| **4. Ekstrakurikuler (`/ekstrakurikuler` & `/ekskul`)** | Koleksi JSON | Ya | Katalog kegiatan ekskul (Marching Band, Voli, Pramuka, Paskibra, Tari, Hadrah, Futsal, Literasi) lengkap dengan filter kategori bidang, jadwal, lokasi, pembina, prestasi, dan CTA pendaftaran. Rute `/ekskul` otomatis dialihkan ke `/ekstrakurikuler`. Menu di navbar berlabel 'Ekskul'. |
+| **5. Guru & Staf (`/guru`)** | Koleksi JSON | Ya | Blok khusus Pimpinan Sekolah (Kepala Sekolah & Wakasek), fitur pencarian & filter bidang, serta grid direktori guru mata pelajaran dan staf TU. |
+| **6. Berita (`/berita`)** | Koleksi Markdown | Ya | Artikel unggulan terbaru, pencarian judul, filter kategori (Kegiatan, Prestasi, Pengumuman, Akademik), dan daftar arsip berita. |
+| **7. Detail Berita (`/berita/[id]`)** | Pre-rendered Dinamis | Ya | Halaman bacaan artikel penuh, foto sampul 16:9, tombol bagikan langsung ke WhatsApp & salin tautan, serta berita terkait. |
+| **8. Info SPMB (`/spmb` & `/ppdb`)** | File Tunggal (JSON) | Ya | Status SPMB (Dibuka/Ditutup), tahun ajaran, pesan penutupan, 4 langkah alur pendaftaran, syarat berkas, jadwal gelombang, info beasiswa/KIP, unduh brosur PDF, FAQ interaktif, serta tautan formulir Google Forms & WA panitia. Rute `/ppdb` otomatis dialihkan ke `/spmb`. |
+| **9. Kontak (`/kontak`)** | Global Config (JSON) | Ya | Alamat lengkap Desa Pekarungan Sukodono, nomor telepon (031) 8830995, tombol WhatsApp TU, email resmi @smpwijayasukodono.sch.id, jam layanan, dan embed Google Maps. |
 
 **Di Luar Ruang Lingkup (Out of Scope):**  
 Sistem Informasi Akademik (SIAKAD), login siswa/orang tua, e-rapor online, ujian berbasis komputer (CBT/E-Learning), dan penyimpanan database berkas pendaftar internal berada di luar ruang lingkup website ini. Proses pengumpulan data formulir SPMB dialihkan ke Google Forms sekolah atau portal resmi Dinas Pendidikan agar tetap gratis dan aman.
@@ -112,6 +113,7 @@ website-smp-wijaya-sukodono/
     │       ├── spmb.json         # Pengaturan SPMB (status, alur, jadwal, syarat, FAQ, kontak)
     │       ├── profil.md         # Sejarah, Visi & Misi, Filosofi Logo
     │       ├── fasilitas.json    # Daftar sarana prasarana sekolah
+    │       ├── ekstrakurikuler.json # Katalog kegiatan ekstrakurikuler sekolah
     │       └── guru.json         # Direktori pimpinan, guru, dan staf TU
     ├── components/
     │   ├── Navbar.astro          # Navigasi utama + responsif drawer
@@ -124,6 +126,8 @@ website-smp-wijaya-sukodono/
         ├── index.astro           # Beranda
         ├── profil.astro          # Tentang Kami & Filosofi Logo
         ├── fasilitas.astro       # Katalog Sarana Prasarana
+        ├── ekstrakurikuler.astro # Katalog Ekstrakurikuler & Minat Bakat (Menu: Ekskul)
+        ├── ekskul.astro          # Rute Pengalihan / Redirect ke /ekstrakurikuler
         ├── guru.astro            # Direktori Guru & Tenaga Kependidikan
         ├── spmb.astro            # Informasi SPMB Resmi
         ├── ppdb.astro            # Rute Pengalihan / Redirect ke /spmb

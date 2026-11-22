@@ -168,3 +168,27 @@ content:
       - { name: visi, label: "Visi Sekolah", type: text }
       - { name: misi, label: "Daftar Misi", type: string, list: true }
       - { name: body, label: "Sejarah & Profil Lengkap", type: rich-text }
+
+  - name: ekstrakurikuler
+    label: "Ekstrakurikuler"
+    type: file
+    path: src/content/data/ekstrakurikuler.json
+    fields:
+      - name: daftar
+        label: "Daftar Ekstrakurikuler"
+        type: object
+        list: true
+        fields:
+          - { name: id, label: "ID Unik", type: number, required: true }
+          - { name: nama, label: "Nama Ekstrakurikuler", type: string, required: true }
+          - name: kategori
+            label: "Kategori Bidang"
+            type: select
+            options: { values: ["Olahraga", "Seni & Budaya", "Kepemimpinan", "Keagamaan", "Minat & Bakat"] }
+          - { name: deskripsi, label: "Deskripsi Kegiatan", type: text, required: true }
+          - { name: prestasi, label: "Prestasi / Catatan Unggulan", type: string }
+          - { name: jadwal, label: "Hari & Jam Latihan", type: string }
+          - { name: lokasi, label: "Tempat Latihan", type: string }
+          - { name: pembina, label: "Pembina / Pelatih", type: string }
+          - { name: badge, label: "Label Khusus (contoh: Unggulan, Wajib Kelas VII)", type: string }
+          - { name: foto, label: "Foto Dokumentasi (Maks 1 MB)", type: image }

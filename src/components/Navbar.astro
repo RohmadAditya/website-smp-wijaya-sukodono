@@ -11,6 +11,7 @@ const navItems = [
   { key: 'home', label: 'Beranda', href: '/' },
   { key: 'profil', label: 'Tentang Kami', href: '/profil' },
   { key: 'fasilitas', label: 'Fasilitas', href: '/fasilitas' },
+  { key: 'ekskul', label: 'Ekskul', href: '/ekstrakurikuler' },
   { key: 'guru', label: 'Guru & Staf', href: '/guru' },
   { key: 'berita', label: 'Berita', href: '/berita' },
   { key: 'kontak', label: 'Kontak', href: '/kontak' },
@@ -32,13 +33,13 @@ const navItems = [
       </a>
 
       <!-- Desktop Nav -->
-      <nav class="hidden lg:flex items-center gap-1" aria-label="Navigasi Utama">
+      <nav class="hidden lg:flex items-center gap-0.5 xl:gap-1" aria-label="Navigasi Utama">
         {navItems.map(item => {
-          const isActive = activeNav === item.key;
+          const isActive = activeNav === item.key || (item.key === 'ekskul' && activeNav === 'ekstrakurikuler');
           return (
             <a
               href={item.href}
-              class={`px-3 py-2 text-sm font-semibold rounded-md transition ${
+              class={`px-2.5 xl:px-3 py-2 text-sm font-semibold rounded-md transition ${
                 isActive
                   ? 'text-cerulean-600 bg-wijayaCyan-50'
                   : 'text-slate-700 hover:text-cerulean-600 hover:bg-slate-50'
@@ -54,7 +55,7 @@ const navItems = [
       <div class="flex items-center gap-2">
         <a
           href="/spmb"
-          class={`hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-semibold shadow-sm transition ${
+          class={`hidden sm:inline-flex items-center gap-2 px-3.5 xl:px-4 py-2.5 rounded-lg text-sm font-semibold shadow-sm transition ${
             activeNav === 'spmb' || activeNav === 'ppdb'
               ? 'bg-ocean-950 text-candiGold-400 ring-2 ring-candiGold-400'
               : 'bg-cerulean-600 hover:bg-cerulean-700 text-white'
@@ -73,11 +74,14 @@ const navItems = [
   <!-- Mobile Drawer -->
   <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-200 bg-white">
     <div class="px-4 pt-2 pb-4 space-y-1">
-      {navItems.map(item => (
-        <a href={item.href} class={`w-full block px-3 py-2.5 rounded-lg text-sm font-semibold ${activeNav === item.key ? 'text-cerulean-600 bg-wijayaCyan-50' : 'text-slate-800 hover:bg-slate-50'}`}>
-          {item.label}
-        </a>
-      ))}
+      {navItems.map(item => {
+        const isActive = activeNav === item.key || (item.key === 'ekskul' && activeNav === 'ekstrakurikuler');
+        return (
+          <a href={item.href} class={`w-full block px-3 py-2.5 rounded-lg text-sm font-semibold ${isActive ? 'text-cerulean-600 bg-wijayaCyan-50' : 'text-slate-800 hover:bg-slate-50'}`}>
+            {item.label}
+          </a>
+        );
+      })}
       <div class="pt-2">
         <a href="/spmb" class="w-full block text-center px-4 py-3 rounded-lg bg-cerulean-600 text-white text-sm font-semibold">
           {spmb.aktif ? `Daftar SPMB ${spmb.tahun_ajaran}` : `Informasi SPMB ${spmb.tahun_ajaran}`}

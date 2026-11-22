@@ -1,0 +1,88 @@
+{
+  "daftar": [
+    {
+      "id": 1,
+      "nama": "Marching Band / Drumband \"Gita Wijaya\"",
+      "kategori": "Seni & Budaya",
+      "deskripsi": "Unit korps musik kebanggaan SMP Wijaya Sukodono yang memadukan instrumen perkusi, brass, dan visual ensemble. Melatih kedisiplinan, musikalitas, dan kerja sama tim berprestasi.",
+      "prestasi": "Juara Harapan 1 Concert Marching Millenial Sidoarjo",
+      "jadwal": "Sabtu, 14.30 – 17.00 WIB",
+      "lokasi": "Halaman Utama & Lapangan Sekolah",
+      "pembina": "Pelatih Marching Band & Pembina Kesiswaan",
+      "badge": "Unggulan"
+    },
+    {
+      "id": 2,
+      "nama": "Bola Voli (Wijaya Volleyball Club)",
+      "kategori": "Olahraga",
+      "deskripsi": "Pembinaan olahraga bola voli intensif mulai dari teknik passing, servis, spike, hingga taktik pertandingan. Rutin menggelar laga persahabatan dan turnamen pelajar.",
+      "prestasi": "Penyelenggara & Juara Turnamen Voli Mini Cup SD se-Kecamatan Sukodono",
+      "jadwal": "Selasa & Kamis, 15.30 – 17.30 WIB",
+      "lokasi": "Lapangan Olahraga SMP Wijaya",
+      "pembina": "Guru PJOK & Pelatih Klub Voli",
+      "badge": "Unggulan"
+    },
+    {
+      "id": 3,
+      "nama": "Pramuka (Gugus Depan SMP Wijaya)",
+      "kategori": "Kepemimpinan",
+      "deskripsi": "Wadah pembentukan karakter tangguh, kemandirian, cinta alam, serta kepedulian sosial melalui penjelajahan, tali-temali, sandi, dan perkemahan sabtu-minggu (Persami).",
+      "prestasi": "Aktif Berpartisipasi dalam Jambore Ranting & Kwarran Sukodono",
+      "jadwal": "Jumat, 13.30 – 15.30 WIB",
+      "lokasi": "Kampus SMP Wijaya Sukodono",
+      "pembina": "Pembina Gugus Depan Pramuka",
+      "badge": "Wajib Kelas VII"
+    },
+    {
+      "id": 4,
+      "nama": "Paskibra (Pasukan Pengibar Bendera)",
+      "kategori": "Kepemimpinan",
+      "deskripsi": "Melatih baris-berbaris (PBB) presisi, ketegasan sikap, kedisiplinan tinggi, serta menjadi garda utama petugas upacara bendera hari besar nasional.",
+      "prestasi": "Petugas Upacara HUT RI & Peringatan Hari Besar Sekolah",
+      "jadwal": "Rabu & Sabtu, 15.00 – 17.00 WIB",
+      "lokasi": "Halaman Upacara Sekolah",
+      "pembina": "Instruktur Paskibra Sekolah",
+      "badge": "Unggulan"
+    },
+    {
+      "id": 5,
+      "nama": "Seni Tari Tradisional & Kreasi",
+      "kategori": "Seni & Budaya",
+      "deskripsi": "Melestarikan seni tari daerah Jawa Timur dan nusantara serta mengembangkan tari kreasi modern untuk mengasah keluwesan gerak, estetika, dan rasa percaya diri siswa.",
+      "prestasi": "Penampil Utama Acara Wisuda Purna Widya & Gebyar Seni Pelajar",
+      "jadwal": "Senin, 15.00 – 16.30 WIB",
+      "lokasi": "Aula & Ruang Kesenian",
+      "pembina": "Guru Seni Budaya"
+    },
+    {
+      "id": 6,
+      "nama": "Hadrah / Seni Al-Banjari & Rohis",
+      "kategori": "Keagamaan",
+      "deskripsi": "Pengembangan bakat seni musik rebana Islami (Al-Banjari) bersholawat serta pembinaan kerohanian Islam (Rohis) untuk menguatkan akhlak mulia dan ketakwaan siswa.",
+      "prestasi": "Pengisi Tetap Peringatan Hari Besar Islam (PHBI) & Safari Maulid",
+      "jadwal": "Kamis, 15.00 – 16.30 WIB",
+      "lokasi": "Musholla Sekolah",
+      "pembina": "Guru Pendidikan Agama Islam (PAI)"
+    },
+    {
+      "id": 7,
+      "nama": "Futsal Club Wijaya",
+      "kategori": "Olahraga",
+      "deskripsi": "Melatih fisik, ketangkasan mengolah si kulit bundar, kekompakan strategi menyerang-bertahan, serta menjunjung tinggi sportivitas antar-pelajar se-Sidoarjo.",
+      "prestasi": "Peserta Turnamen Futsal Pelajar Tingkat Kabupaten",
+      "jadwal": "Rabu, 15.30 – 17.00 WIB",
+      "lokasi": "Lapangan Olahraga Sekolah",
+      "pembina": "Pelatih Futsal & Staf Kesiswaan"
+    },
+    {
+      "id": 8,
+      "nama": "Literasi, Mading & Jurnalistik Pelajar",
+      "kategori": "Minat & Bakat",
+      "deskripsi": "Klub asah nalar kritis bagi siswa yang mencintai karya tulis, puisi, cerita pendek, fotografi sekolah, hingga pembuatan majalah dinding (mading) berkala.",
+      "prestasi": "Penerbit Majalah Dinding Sekolah & Kurator Mading Literasi P5",
+      "jadwal": "Selasa, 14.30 – 16.00 WIB",
+      "lokasi": "Perpustakaan Sekolah",
+      "pembina": "Guru Bahasa Indonesia"
+    }
+  ]
+}
