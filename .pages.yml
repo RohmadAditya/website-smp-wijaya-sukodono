@@ -65,7 +65,11 @@ content:
             type: select
             options: { values: [Akademik, Laboratorium, Olahraga & Ibadah] }
           - { name: deskripsi, label: Deskripsi Singkat, type: text }
-          - { name: foto, label: Foto Fasilitas (4:3, maks 1 MB), type: image }
+          - { name: foto, label: Foto Sampul Utama (4:3, maks 1 MB), type: image }
+          - name: galeri
+            label: Foto Tambahan / Galeri (Bisa lebih dari 1 foto)
+            type: image
+            list: true
   - name: guru
     label: Direktori Guru & Staf
     type: file

@@ -187,8 +187,20 @@ website-smp-wijaya-sukodono/
 ### 4.3 Cara Mengatur SPMB, Fasilitas, & Data Guru
 - **Menyalakan/Mematikan Banner SPMB**: Buka **Pengaturan Sekolah & Beranda** -> centang/uncentang opsi **Tampilkan Banner SPMB di Beranda?** -> perbarui link Google Forms jika ada perubahan -> klik **Save**.
 - **Memperbarui Data Guru / Fasilitas**: Buka menu **Direktori Guru & Staf** atau **Fasilitas Sekolah**, tambah baris baru dengan klik tanda `+` atau edit data yang ada -> klik **Save**.
+- **Mengunggah Banyak Foto Fasilitas**: Pada menu **Fasilitas Sekolah**, setiap fasilitas memiliki kolom **Foto Sampul Utama** serta kolom **Foto Tambahan / Galeri**. Klik tombol `+` pada kolom galeri untuk menambahkan foto ke-2, ke-3, dst. Pengunjung dapat melihat seluruh foto tersebut lewat slider & thumbnail di modal fasilitas.
 
-### 4.4 Lembar Serah Terima Akun & Catatan Perpanjangan Domain
+### 4.4 Panduan Kompresi Gambar Sebelum Upload (Agar Website Cepat & Ringan)
+Karena website menggunakan arsitektur GitOps di mana setiap file disimpan langsung di repositori, foto yang diunggah sebaiknya tidak melebihi **300 KB – 500 KB** per file (jangan mengunggah file foto kamera mentah berukuran 3 MB – 10 MB).
+
+**Langkah Kompresi Cepat (Tanpa Perlu Instal Aplikasi):**
+1. Buka situs kompresi gratis di browser:
+   * **TinyPNG / TinyJPG** (`https://tinypng.com`) — Cukup tarik (*drag & drop*) foto, tunggu proses selesai, lalu download.
+   * **Squoosh** (`https://squoosh.app`) — Milik Google. Unggah foto, pilih format **WebP** atau **MozJPEG**, atur *Quality* ke 75–80%, dan atur ukuran maksimal lebar (*resize width*) ke **1200px** atau **1600px**.
+   * **ILoveIMG** (`https://www.iloveimg.com/compress-image`) — Bisa kompres banyak foto sekaligus dalam hitungan detik.
+2. Gunakan format modern: **WebP** (sangat dianjurkan) atau **JPG/JPEG**.
+3. Pastikan ukuran file hasil kompresi berada di bawah **500 KB** sebelum diunggah ke Pages CMS.
+
+### 4.5 Lembar Serah Terima Akun & Catatan Perpanjangan Domain
 
 | Item Aset Digital | Data Resmi |
 | :--- | :--- |

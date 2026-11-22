@@ -3,12 +3,29 @@
 
 <div id="facility-modal" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
   <div class="bg-white rounded-2xl max-w-2xl w-full overflow-hidden shadow-2xl relative" id="modal-container">
-    <div id="modal-visual" class="aspect-[16/10] bg-gradient-to-br from-ocean-950 to-ocean-900 flex flex-col items-center justify-center p-8 text-center text-white relative overflow-hidden">
-      <img id="modal-img" src="" alt="" class="hidden absolute inset-0 w-full h-full object-cover" />
+    <div id="modal-visual" class="aspect-[16/10] bg-gradient-to-br from-ocean-950 to-ocean-900 flex flex-col items-center justify-center p-8 text-center text-white relative overflow-hidden group">
+      <img id="modal-img" src="" alt="" class="hidden absolute inset-0 w-full h-full object-cover transition-opacity duration-200" />
       <div id="modal-overlay-bg" class="hidden absolute inset-0 bg-gradient-to-t from-ocean-950/90 via-transparent to-black/30"></div>
-      <span id="modal-category" class="relative z-10 px-3 py-1 rounded-full bg-candiGold-400 text-ocean-950 font-mono text-xs font-bold mb-3 shadow"></span>
+      
+      <!-- Prev / Next arrows for multi-photo -->
+      <button id="modal-prev-btn" type="button" class="hidden absolute left-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-ocean-950/70 hover:bg-ocean-950 text-white flex items-center justify-center backdrop-blur-sm transition shadow" aria-label="Foto Sebelumnya">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/></svg>
+      </button>
+      <button id="modal-next-btn" type="button" class="hidden absolute right-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-ocean-950/70 hover:bg-ocean-950 text-white flex items-center justify-center backdrop-blur-sm transition shadow" aria-label="Foto Berikutnya">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+      </button>
+
+      <!-- Badge & Counter -->
+      <div class="relative z-10 flex items-center gap-2 mb-3">
+        <span id="modal-category" class="px-3 py-1 rounded-full bg-candiGold-400 text-ocean-950 font-mono text-xs font-bold shadow"></span>
+        <span id="modal-photo-counter" class="hidden px-2.5 py-0.5 rounded-full bg-white/20 backdrop-blur-sm text-white font-mono text-[11px] font-semibold"></span>
+      </div>
       <div id="modal-title-overlay" class="relative z-10 text-2xl font-extrabold drop-shadow"></div>
     </div>
+
+    <!-- Thumbnails strip -->
+    <div id="modal-thumbnails" class="hidden px-6 pt-3 pb-2 flex gap-2 overflow-x-auto border-b border-slate-100 bg-slate-50"></div>
+
     <div class="p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
       <div>
         <h3 id="modal-title" class="text-lg font-bold text-ocean-950"></h3>
@@ -23,6 +40,41 @@
   const modal = document.getElementById('facility-modal');
   const closeBtn = document.getElementById('close-modal-btn');
   const container = document.getElementById('modal-container');
+  const prevBtn = document.getElementById('modal-prev-btn');
+  const nextBtn = document.getElementById('modal-next-btn');
+  const counter = document.getElementById('modal-photo-counter');
+  const thumbsContainer = document.getElementById('modal-thumbnails');
+  const modalImg = document.getElementById('modal-img');
+  const modalOverlay = document.getElementById('modal-overlay-bg');
+
+  let currentPhotos = [];
+  let currentPhotoIndex = 0;
+
+  function updateModalPhoto(index) {
+    if (!currentPhotos.length) return;
+    currentPhotoIndex = (index + currentPhotos.length) % currentPhotos.length;
+    modalImg.src = currentPhotos[currentPhotoIndex];
+    modalImg.classList.remove('hidden');
+    if (modalOverlay) modalOverlay.classList.remove('hidden');
+
+    if (currentPhotos.length > 1) {
+      if (counter) {
+        counter.textContent = `${currentPhotoIndex + 1} / ${currentPhotos.length}`;
+        counter.classList.remove('hidden');
+      }
+      if (thumbsContainer) {
+        thumbsContainer.querySelectorAll('button').forEach((btn, i) => {
+          if (i === currentPhotoIndex) {
+            btn.classList.add('ring-2', 'ring-cerulean-600', 'opacity-100');
+            btn.classList.remove('opacity-60');
+          } else {
+            btn.classList.remove('ring-2', 'ring-cerulean-600', 'opacity-100');
+            btn.classList.add('opacity-60');
+          }
+        });
+      }
+    }
+  }
 
   window.openFacilityModal = function(item) {
     if (!modal) return;
@@ -31,22 +83,51 @@
     document.getElementById('modal-title').textContent = item.nama || '';
     document.getElementById('modal-desc').textContent = item.deskripsi || '';
 
-    const modalImg = document.getElementById('modal-img');
-    const modalOverlay = document.getElementById('modal-overlay-bg');
-    if (item && item.foto) {
-      modalImg.src = item.foto;
+    // Collect photos: main photo + gallery items (if any)
+    const gallery = Array.isArray(item.galeri) ? item.galeri : [];
+    currentPhotos = [item.foto, ...gallery].filter(Boolean);
+    currentPhotoIndex = 0;
+
+    if (currentPhotos.length > 0) {
       modalImg.alt = item.nama || 'Foto Fasilitas';
-      modalImg.classList.remove('hidden');
-      if (modalOverlay) modalOverlay.classList.remove('hidden');
+      updateModalPhoto(0);
+
+      if (currentPhotos.length > 1) {
+        prevBtn?.classList.remove('hidden');
+        nextBtn?.classList.remove('hidden');
+        if (thumbsContainer) {
+          thumbsContainer.innerHTML = currentPhotos.map((src, i) => `
+            <button type="button" onclick="window._setFacilityModalPhoto(${i})" class="w-14 h-10 rounded-lg overflow-hidden border border-slate-200 shrink-0 transition ${i === 0 ? 'ring-2 ring-cerulean-600 opacity-100' : 'opacity-60 hover:opacity-100'}">
+              <img src="${src}" alt="" class="w-full h-full object-cover" />
+            </button>
+          `).join('');
+          thumbsContainer.classList.remove('hidden');
+        }
+      } else {
+        prevBtn?.classList.add('hidden');
+        nextBtn?.classList.add('hidden');
+        counter?.classList.add('hidden');
+        thumbsContainer?.classList.add('hidden');
+      }
     } else {
       modalImg.src = '';
-      modalImg.alt = '';
       modalImg.classList.add('hidden');
-      if (modalOverlay) modalOverlay.classList.add('hidden');
+      modalOverlay?.classList.add('hidden');
+      prevBtn?.classList.add('hidden');
+      nextBtn?.classList.add('hidden');
+      counter?.classList.add('hidden');
+      thumbsContainer?.classList.add('hidden');
     }
 
     modal.classList.remove('hidden');
   };
+
+  window._setFacilityModalPhoto = function(idx) {
+    updateModalPhoto(idx);
+  };
+
+  prevBtn?.addEventListener('click', () => updateModalPhoto(currentPhotoIndex - 1));
+  nextBtn?.addEventListener('click', () => updateModalPhoto(currentPhotoIndex + 1));
 
   function closeModal() {
     if (modal) modal.classList.add('hidden');
@@ -60,5 +141,9 @@
   }
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeModal();
+    if (!modal.classList.contains('hidden') && currentPhotos.length > 1) {
+      if (e.key === 'ArrowLeft') updateModalPhoto(currentPhotoIndex - 1);
+      if (e.key === 'ArrowRight') updateModalPhoto(currentPhotoIndex + 1);
+    }
   });
 </script>
