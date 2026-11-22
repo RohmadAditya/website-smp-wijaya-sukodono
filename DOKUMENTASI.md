@@ -44,7 +44,7 @@ Pemilihan arsitektur Static Site berbasis Astro dan Cloudflare Pages yang dikomb
 | **5. Berita (`/berita`)** | Koleksi Markdown | Ya | Artikel unggulan terbaru, pencarian judul, filter kategori (Kegiatan, Prestasi, Pengumuman, Akademik), dan daftar arsip berita. |
 | **6. Detail Berita (`/berita/[id]`)** | Pre-rendered Dinamis | Ya | Halaman bacaan artikel penuh, foto sampul 16:9, tombol bagikan langsung ke WhatsApp & salin tautan, serta berita terkait. |
 | **7. Info SPMB (`/ppdb`)** | File Tunggal (MD/YAML) | Ya | Status SPMB (Dibuka/Ditutup), 4 langkah alur pendaftaran, syarat berkas, jadwal gelombang, FAQ interaktif, serta tautan formulir Google Forms & WA panitia. |
-| **8. Kontak (`/kontak`)** | Global Config (JSON) | Ya | Alamat lengkap Desa Pekarungan Sukodono, nomor telepon (031) 8830995, tombol WhatsApp TU, email resmi @smpwijayasudono.sch.id, jam layanan, dan embed Google Maps. |
+| **8. Kontak (`/kontak`)** | Global Config (JSON) | Ya | Alamat lengkap Desa Pekarungan Sukodono, nomor telepon (031) 8830995, tombol WhatsApp TU, email resmi @smpwijayasukodono.sch.id, jam layanan, dan embed Google Maps. |
 
 **Di Luar Ruang Lingkup (Out of Scope):**  
 Sistem Informasi Akademik (SIAKAD), login siswa/orang tua, e-rapor online, ujian berbasis komputer (CBT/E-Learning), dan penyimpanan database berkas pendaftar internal berada di luar ruang lingkup website ini. Proses pengumpulan data formulir SPMB dialihkan ke Google Forms sekolah atau portal resmi Dinas Pendidikan agar tetap gratis dan aman.
@@ -57,7 +57,7 @@ Sistem Informasi Akademik (SIAKAD), login siswa/orang tua, e-rapor online, ujian
 | **Hosting, CDN & SSL** | Cloudflare Pages (Free Tier, unlimited bandwidth & requests) | Rp 0 |
 | **Repositori Kode & Konten** | GitHub (Private Repository — Single Source of Truth) | Rp 0 |
 | **Dashboard Admin (CMS)** | Pages CMS (app.pagescms.org — fitur Email Collaborators) | Rp 0 |
-| **Email Resmi Sekolah** | Cloudflare Email Routing (`info@smpwijayasudono.sch.id` -> Gmail TU) | Rp 0 |
+| **Email Resmi Sekolah** | Cloudflare Email Routing (`info@smpwijayasukodono.sch.id` -> Gmail TU) | Rp 0 |
 | **Formulir & Analitik** | Google Forms (SPMB) + Cloudflare Web Analytics | Rp 0 |
 | **TOTAL BIAYA OPERASIONAL** | Beban rutin tahunan sekolah | **± Rp 55.000 – Rp 70.000 / tahun** |
 
@@ -84,7 +84,7 @@ Sistem Informasi Akademik (SIAKAD), login siswa/orang tua, e-rapor online, ujian
        │
        │  4. Distribusi ke Edge CDN Global + HTTPS otomatis
        ▼
-[https://smpwijayasudono.sch.id]  (Perubahan tayang secara publik dalam 30–60 detik)
+[https://smpwijayasukodono.sch.id]  (Perubahan tayang secara publik dalam 30–60 detik)
 ```
 
 ### 2.2 Struktur Direktori Proyek
@@ -97,7 +97,7 @@ website-smp-wijaya-sukodono/
 ├── public/
 │   ├── favicon.svg               # Favicon vektor resmi
 │   ├── robots.txt                # Petunjuk spider mesin pencari
-│   ├── preview.html              # Prototipe interaktif standalone
+│   └── _headers                  # Konfigurasi HTTP Security Headers Cloudflare Pages
 │   └── images/
 │       ├── logo-smp-wijaya.svg   # Logo vektor resmi SMP Wijaya Sukodono
 │       └── uploads/              # Folder foto yang diunggah lewat Pages CMS
@@ -192,8 +192,8 @@ website-smp-wijaya-sukodono/
 
 | Item Aset Digital | Data Resmi |
 | :--- | :--- |
-| **Alamat Website Resmi** | `https://smpwijayasudono.sch.id` |
-| **Email Induk IT Sekolah (Gmail)** | `it.smpwijayasudono@gmail.com` |
+| **Alamat Website Resmi** | `https://smpwijayasukodono.sch.id` |
+| **Email Induk IT Sekolah (Gmail)** | `it.smpwijayasukodono@gmail.com` |
 | **Email Operator Pengelola CMS** | `tatausaha.smpwijaya@gmail.com` |
 | **Penyedia Registrar Domain .sch.id** | Rumahweb / Qwords / Jagoan Hosting |
 | **Estimasi Biaya Perpanjangan** | ± Rp 55.000 – Rp 70.000 / tahun |

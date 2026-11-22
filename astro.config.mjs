@@ -3,7 +3,7 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://smpwijayasudono.sch.id',
+  site: 'https://smpwijayasukodono.sch.id',
   vite: {
     plugins: [tailwindcss()],
   },

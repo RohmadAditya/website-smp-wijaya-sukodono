@@ -7,7 +7,7 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "sync": "python3 scripts/sync_preview.py",
+    "sync": "astro sync",
     "astro": "astro"
   },
   "dependencies": {
