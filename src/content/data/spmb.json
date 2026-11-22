@@ -1,5 +1,5 @@
 {
-  "aktif": true,
+  "aktif": false,
   "tahun_ajaran": "2026/2027",
   "banner": {
     "label": "SPMB 2026/2027",
@@ -57,11 +57,6 @@
       "langkah": "04",
       "judul": "Daftar Ulang & MPLS",
       "deskripsi": "Konfirmasi daftar ulang dan mengikuti Masa Pengenalan Lingkungan Sekolah (MPLS) Tahun Ajaran baru."
-    },
-    {
-      "langkah": "05",
-      "judul": "Lolos",
-      "deskripsi": "qwertyui"
     }
   ],
   "syarat_berkas": [
