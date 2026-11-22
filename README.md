@@ -7,15 +7,16 @@ Dibangun dengan arsitektur **GitOps Static Site** berbasis **Astro + Tailwind CS
 ## Fitur Utama
 
 - **Ultra Low-Maintenance & Zero-Cost Hosting**: Hosting di Cloudflare Pages (Rp 0), penyimpanan di GitHub (Rp 0), CMS via Pages CMS (Rp 0). Biaya rutin hanya domain resmi `.sch.id` (± Rp 60rb/tahun).
-- **8 Rute Halaman Lengkap**:
+- **Rute Halaman Lengkap**:
   1. `/` — Beranda (Hero, Sambutan Kepsek, Program Unggulan, Pimpinan Sekolah, Pratinjau Fasilitas, Berita Terbaru, CTA SPMB)
-  2. `/profil` — Profil, Visi Misi, Data Kemdikbud, & Filosofi Lambang Sekolah
-  3. `/fasilitas` — Katalog Sarana Prasarana dengan Filter Kategori & Lightbox Modal
-  4. `/guru` — Direktori Guru & Tenaga Kependidikan dengan Filter Bidang & Live Search
-  5. `/berita` — Arsip Berita, Prestasi & Pengumuman dengan Filter & Live Search
-  6. `/berita/[id]` — Halaman Baca Berita Lengkap, Share WhatsApp & Berita Terkait
-  7. `/ppdb` — Informasi SPMB 2026/2027, Alur 4 Langkah, Syarat, Jadwal & FAQ
-  8. `/kontak` — Alamat, Telepon, WhatsApp Tata Usaha & Google Maps Interaktif
+  2. `/profil` — Profil, Visi Misi Dinamis dari CMS, Data Kemdikbud, & Filosofi Lambang Sekolah
+  3. `/fasilitas` — Katalog Sarana Prasarana dengan Filter Kategori & Lightbox Modal Aksesibel
+  4. `/ekstrakurikuler` — Katalog Ekstrakurikuler & Minat Bakat (Auto-redirect dari `/ekskul` via HTTP 301)
+  5. `/guru` — Direktori Guru & Tenaga Kependidikan dengan Filter Bidang & Live Search
+  6. `/berita` — Arsip Berita, Prestasi & Pengumuman dengan Filter & Live Search
+  7. `/berita/[id]` — Halaman Baca Berita Lengkap, Share WhatsApp & Berita Terkait
+  8. `/spmb` — Informasi SPMB 2026/2027, Alur 4 Langkah, Syarat, Jadwal & FAQ (Auto-redirect dari `/ppdb` via HTTP 301)
+  9. `/kontak` — Alamat, Telepon, WhatsApp Tata Usaha & Google Maps Interaktif
 - **Pages CMS Ready**: File konfigurasi `.pages.yml` siap pakai di root repositori.
 - **Standar Desain Modern**: Mengadaptasi ritme layout terstruktur ala SMK YPM 8 Sarirogo dan menurunkan palet warna resmi langsung dari lambang SMP Wijaya Sukodono.
 
@@ -24,6 +25,9 @@ Dibangun dengan arsitektur **GitOps Static Site** berbasis **Astro + Tailwind CS
 ```bash
 # Menjalankan server lokal (development)
 npm run dev
+
+# Memvalidasi tipe data dan skema (type check)
+npm run check
 
 # Membangun output statis untuk produksi
 npm run build

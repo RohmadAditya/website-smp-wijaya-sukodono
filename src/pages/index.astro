@@ -3,17 +3,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import fasilitasJson from '../content/data/fasilitas.json';
 import guruJson from '../content/data/guru.json';
-import pengaturan from '../content/data/pengaturan.json';
+import pengaturanRaw from '../content/data/pengaturan.json';
 import spmb from '../content/data/spmb.json';
 import FacilityModal from '../components/FacilityModal.astro';
+import type { GuruItem, Pengaturan } from '../content.config';
 
+const pengaturan = pengaturanRaw as Pengaturan;
 const allBerita = await getCollection('berita', ({ data }) => !data.draft);
 const sortedBerita = allBerita
   .sort((a, b) => b.data.tanggal.getTime() - a.data.tanggal.getTime())
   .slice(0, 3);
 
 const featuredFacilities = (fasilitasJson.daftar || []).slice(0, 6);
-const pimpinanList = (guruJson.daftar || []).filter(
+const pimpinanList = ((guruJson.daftar || []) as GuruItem[]).filter(
   (g) => g.bidang?.toLowerCase() === 'pimpinan'
 );
 
@@ -230,8 +232,8 @@ function formatDate(date: Date) {
                 <span class="text-white font-bold text-base drop-shadow-md truncate">{item.nama}</span>
                 <button
                   type="button"
-                  onclick={`openFacilityModal(${JSON.stringify(item)})`}
-                  class="px-3 py-1.5 rounded-lg bg-candiGold-400 hover:bg-yellow-300 text-ocean-950 text-xs font-bold transition-all duration-200 hover:scale-105 active:scale-95 shrink-0 shadow-md"
+                  data-facility={JSON.stringify(item)}
+                  class="open-facility-modal-btn px-3 py-1.5 rounded-lg bg-candiGold-400 hover:bg-yellow-300 text-ocean-950 text-xs font-bold transition-all duration-200 hover:scale-105 active:scale-95 shrink-0 shadow-md"
                 >
                   Lihat Foto
                 </button>

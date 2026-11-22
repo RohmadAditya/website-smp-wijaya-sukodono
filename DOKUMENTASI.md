@@ -40,11 +40,11 @@ Pemilihan arsitektur Static Site berbasis Astro dan Cloudflare Pages yang dikomb
 | **1. Beranda (`/`)** | Dinamis (JSON + 3 Berita) | Ya | Top bar SPMB (kondisional), Hero + Signature Experience Card (6+ Dekade / Purna Widya ke-LXIV), Sambutan Kepala Sekolah, 4 Program Unggulan, Pimpinan Sekolah, Pratinjau Fasilitas, 3 Berita Terbaru, CTA SPMB. |
 | **2. Tentang Kami (`/profil`)** | File Tunggal (MD/YAML) | Ya | Identitas resmi (NPSN 20540036, Akreditasi B), Sejarah singkat, Visi & Misi, serta Filosofi Logo SMP Wijaya Sukodono. |
 | **3. Fasilitas (`/fasilitas`)** | Koleksi JSON | Ya | Katalog sarana prasarana sekolah (Ruang Kelas, Lab Komputer, Perpustakaan, Lab IPA, Lapangan Olahraga, Musholla) dengan filter kategori dan modal Lightbox 'Lihat Foto'. |
-| **4. Ekstrakurikuler (`/ekstrakurikuler` & `/ekskul`)** | Koleksi JSON | Ya | Katalog kegiatan ekskul (Marching Band, Voli, Pramuka, Paskibra, Tari, Hadrah, Futsal, Literasi) lengkap dengan filter kategori bidang, jadwal, lokasi, pembina, prestasi, dan CTA pendaftaran. Rute `/ekskul` otomatis dialihkan ke `/ekstrakurikuler`. Menu di navbar berlabel 'Ekskul'. |
+| **4. Ekstrakurikuler (`/ekstrakurikuler` & `/ekskul`)** | Koleksi JSON | Ya | Katalog kegiatan ekskul (Marching Band, Voli, Pramuka, Paskibra, Tari, Hadrah, Futsal, Literasi) lengkap dengan filter kategori bidang, jadwal, lokasi, pembina, prestasi, dan CTA pendaftaran. Rute legacy `/ekskul` otomatis dialihkan via HTTP 301 (`_redirects`) ke `/ekstrakurikuler`. Menu di navbar berlabel 'Ekskul'. |
 | **5. Guru & Staf (`/guru`)** | Koleksi JSON | Ya | Blok khusus Pimpinan Sekolah (Kepala Sekolah & Wakasek), fitur pencarian & filter bidang, serta grid direktori guru mata pelajaran dan staf TU. |
 | **6. Berita (`/berita`)** | Koleksi Markdown | Ya | Artikel unggulan terbaru, pencarian judul, filter kategori (Kegiatan, Prestasi, Pengumuman, Akademik), dan daftar arsip berita. |
 | **7. Detail Berita (`/berita/[id]`)** | Pre-rendered Dinamis | Ya | Halaman bacaan artikel penuh, foto sampul 16:9, tombol bagikan langsung ke WhatsApp & salin tautan, serta berita terkait. |
-| **8. Info SPMB (`/spmb` & `/ppdb`)** | File Tunggal (JSON) | Ya | Status SPMB (Dibuka/Ditutup), tahun ajaran, pesan penutupan, 4 langkah alur pendaftaran, syarat berkas, jadwal gelombang, info beasiswa/KIP, unduh brosur PDF, FAQ interaktif, serta tautan formulir Google Forms & WA panitia. Rute `/ppdb` otomatis dialihkan ke `/spmb`. |
+| **8. Info SPMB (`/spmb` & `/ppdb`)** | File Tunggal (JSON) | Ya | Status SPMB (Dibuka/Ditutup), tahun ajaran, pesan penutupan, 4 langkah alur pendaftaran, syarat berkas, jadwal gelombang, info beasiswa/KIP, unduh brosur PDF, FAQ interaktif, serta tautan formulir Google Forms & WA panitia. Rute legacy `/ppdb` otomatis dialihkan via HTTP 301 (`_redirects`) ke `/spmb`. |
 | **9. Kontak (`/kontak`)** | Global Config (JSON) | Ya | Alamat lengkap Desa Pekarungan Sukodono, nomor telepon (031) 8830995, tombol WhatsApp TU, email resmi @smpwijayasukodono.sch.id, jam layanan, dan embed Google Maps. |
 
 **Di Luar Ruang Lingkup (Out of Scope):**  
@@ -98,39 +98,42 @@ website-smp-wijaya-sukodono/
 ├── public/
 │   ├── favicon.svg               # Favicon vektor resmi
 │   ├── robots.txt                # Petunjuk spider mesin pencari
-│   └── _headers                  # Konfigurasi HTTP Security Headers Cloudflare Pages
+│   ├── _headers                  # Konfigurasi HTTP Security Headers Cloudflare Pages
+│   ├── _redirects                # Konfigurasi HTTP 301 Edge Redirects (/ppdb -> /spmb, /ekskul -> /ekstrakurikuler)
 │   └── images/
 │       ├── logo-smp-wijaya.svg   # Logo vektor resmi SMP Wijaya Sukodono
+│       ├── hero/                 # Foto hero web format WebP teroptimasi
+│       ├── ekskul/               # Foto kegiatan ekstrakurikuler WebP
 │       └── uploads/              # Folder foto yang diunggah lewat Pages CMS
+├── tsconfig.json                 # Konfigurasi TypeScript Astro Strict
 └── src/
     ├── styles/
-    │   └── global.css            # Design Tokens SMP Wijaya (Tailwind CSS v4)
-    ├── content.config.ts         # Skema validasi Zod Astro Content Layer
+    │   └── global.css            # Design Tokens SMP Wijaya & Self-hosted Fonts
+    ├── content.config.ts         # Skema validasi Zod & Tipe Data Content Layer
     ├── content/
     │   ├── berita/               # Koleksi artikel berita (.md)
     │   └── data/
     │       ├── pengaturan.json   # Identitas global & sambutan Kepsek
     │       ├── spmb.json         # Pengaturan SPMB (status, alur, jadwal, syarat, FAQ, kontak)
-    │       ├── profil.md         # Sejarah, Visi & Misi, Filosofi Logo
+    │       ├── profil.md         # Sejarah, Visi & Misi Dinamis
     │       ├── fasilitas.json    # Daftar sarana prasarana sekolah
     │       ├── ekstrakurikuler.json # Katalog kegiatan ekstrakurikuler sekolah
     │       └── guru.json         # Direktori pimpinan, guru, dan staf TU
     ├── components/
-    │   ├── Navbar.astro          # Navigasi utama + responsif drawer
+    │   ├── Navbar.astro          # Navigasi utama + responsif drawer aksesibel
     │   ├── TopBarSPMB.astro      # Banner pengumuman SPMB kondisional
     │   ├── Footer.astro          # Footer 4 kolom resmi
-    │   └── FacilityModal.astro   # Lightbox modal foto fasilitas
+    │   ├── FacilityModal.astro   # Lightbox modal foto fasilitas (Aksesibel + Focus Trap)
+    │   └── EkskulModal.astro      # Lightbox modal foto ekstrakurikuler (Aksesibel + Focus Trap)
     ├── layouts/
     │   └── BaseLayout.astro      # Meta SEO + OpenGraph WhatsApp + Global Assets
     └── pages/
         ├── index.astro           # Beranda
-        ├── profil.astro          # Tentang Kami & Filosofi Logo
+        ├── profil.astro          # Tentang Kami & Filosofi Logo (Koneksi dinamis ke profil.md)
         ├── fasilitas.astro       # Katalog Sarana Prasarana
         ├── ekstrakurikuler.astro # Katalog Ekstrakurikuler & Minat Bakat (Menu: Ekskul)
-        ├── ekskul.astro          # Rute Pengalihan / Redirect ke /ekstrakurikuler
         ├── guru.astro            # Direktori Guru & Tenaga Kependidikan
         ├── spmb.astro            # Informasi SPMB Resmi
-        ├── ppdb.astro            # Rute Pengalihan / Redirect ke /spmb
         ├── kontak.astro          # Kontak Resmi & Embed Maps
         └── berita/
             ├── index.astro       # Arsip & Pencarian Berita

@@ -63,8 +63,8 @@ const categories = ['Semua', 'Akademik', 'Laboratorium', 'Olahraga & Ibadah'];
               <span class="text-white font-bold text-base drop-shadow-md truncate">{f.nama}</span>
               <button
                 type="button"
-                onclick={`openFacilityModal(${JSON.stringify(f)})`}
-                class="px-3 py-1.5 rounded-lg bg-candiGold-400 hover:bg-yellow-300 text-ocean-950 text-xs font-bold transition shrink-0 shadow-md"
+                data-facility={JSON.stringify(f)}
+                class="open-facility-modal-btn px-3 py-1.5 rounded-lg bg-candiGold-400 hover:bg-yellow-300 text-ocean-950 text-xs font-bold transition shrink-0 shadow-md"
               >
                 Lihat Foto
               </button>

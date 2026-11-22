@@ -1,6 +1,16 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import pengaturan from '../content/data/pengaturan.json';
+import * as profilData from '../content/data/profil.md';
+
+const { frontmatter, Content } = profilData;
+const visi = frontmatter.visi || "Terwujudnya Peserta Didik yang Beriman, Berakhlak Mulia, Unggul dalam Prestasi, Terampil, dan Berwawasan Lingkungan.";
+const misi = Array.isArray(frontmatter.misi) && frontmatter.misi.length > 0 ? frontmatter.misi : [
+  "Menanamkan keimanan, ketakwaan, dan pembiasaan akhlakul karimah dalam seluruh aktivitas warga sekolah.",
+  "Melaksanakan pembelajaran yang aktif, inovatif, dan ramah anak guna meningkatkan mutu akademik siswa.",
+  "Mengembangkan potensi bakat di bidang olahraga, seni drumband, kepramukaan, dan keterampilan abad ke-21.",
+  "Membangun lingkungan belajar yang bersih, disiplin, harmonis, serta bersinergi dengan orang tua dan masyarakat."
+];
 ---
 
 <BaseLayout title="Profil & Filosofi Logo — SMP Wijaya Sukodono" description="Mengenal sejarah pengabdian, identitas resmi Kemdikbud, visi-misi pendidikan, serta makna filosofis lambang SMP Wijaya Sukodono." activeNav="profil">
@@ -32,12 +42,9 @@ import pengaturan from '../content/data/pengaturan.json';
       <div class="lg:col-span-7 space-y-4">
         <div class="text-xs font-mono font-semibold uppercase tracking-widest text-cerulean-600">Sejarah Singkat</div>
         <h2 class="text-2xl font-bold text-ocean-950">Enam Dekade Mencerdaskan Putra-Putri Sukodono</h2>
-        <p class="text-slate-600 leading-relaxed">
-          SMP Wijaya Sukodono merupakan lembaga pendidikan menengah pertama swasta yang telah berdiri dan mengabdi lebih dari enam dekade di Desa Pekarungan, Kecamatan Sukodono, Kabupaten Sidoarjo. Konsistensi pengabdian ini tercermin dari terselenggaranya wisuda kelulusan Purna Widya ke-LXIV pada tahun 2025 dengan tingkat kelulusan 100%.
-        </p>
-        <p class="text-slate-600 leading-relaxed">
-          Menjunjung semangat kejayaan budaya dan ilmu pengetahuan, sekolah terus beradaptasi dengan perkembangan zaman melalui penerapan kurikulum modern, penguatan literasi digital, serta pembinaan ekstrakurikuler olahraga dan seni yang aktif mengharumkan nama kecamatan maupun kabupaten.
-        </p>
+        <div class="text-slate-600 leading-relaxed space-y-4">
+          <Content />
+        </div>
       </div>
       <div class="lg:col-span-5">
         <div class="rounded-xl border border-slate-200 overflow-hidden bg-white shadow-sm card-interactive">
@@ -60,16 +67,20 @@ import pengaturan from '../content/data/pengaturan.json';
       <div class="lg:col-span-5 rounded-2xl bg-ocean-950 text-white p-8 border-t-4 border-candiGold-400 card-interactive">
         <div class="text-xs font-mono uppercase tracking-widest text-candiGold-400 font-semibold">Visi Sekolah</div>
         <blockquote class="text-xl sm:text-2xl font-bold leading-snug mt-3">
-          "Terwujudnya Peserta Didik yang Beriman, Berakhlak Mulia, Unggul dalam Prestasi, Terampil, dan Berwawasan Lingkungan."
+          "{visi}"
         </blockquote>
       </div>
       <div class="lg:col-span-7 rounded-2xl bg-slate-50 border border-slate-200 p-8 card-interactive">
         <div class="text-xs font-mono uppercase tracking-widest text-cerulean-600 font-semibold mb-4">Misi Sekolah</div>
         <ol class="space-y-3 text-sm sm:text-base text-slate-700">
-          <li class="flex gap-3"><span class="w-6 h-6 rounded-full bg-cerulean-600 text-white text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">1</span><span>Menanamkan keimanan, ketakwaan, dan pembiasaan akhlakul karimah dalam seluruh aktivitas warga sekolah.</span></li>
-          <li class="flex gap-3"><span class="w-6 h-6 rounded-full bg-cerulean-600 text-white text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">2</span><span>Melaksanakan pembelajaran yang aktif, inovatif, dan ramah anak guna meningkatkan mutu akademik siswa.</span></li>
-          <li class="flex gap-3"><span class="w-6 h-6 rounded-full bg-cerulean-600 text-white text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">3</span><span>Mengembangkan potensi bakat di bidang olahraga, seni drumband, kepramukaan, dan keterampilan abad ke-21.</span></li>
-          <li class="flex gap-3"><span class="w-6 h-6 rounded-full bg-cerulean-600 text-white text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">4</span><span>Membangun lingkungan belajar yang bersih, disiplin, harmonis, serta bersinergi dengan orang tua dan masyarakat.</span></li>
+          {misi.map((m: string, idx: number) => (
+            <li class="flex gap-3">
+              <span class="w-6 h-6 rounded-full bg-cerulean-600 text-white text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">
+                {idx + 1}
+              </span>
+              <span>{m}</span>
+            </li>
+          ))}
         </ol>
       </div>
     </div>

@@ -64,7 +64,14 @@ const navItems = [
           <span>{spmb.aktif ? 'Daftar SPMB' : 'Info SPMB'}</span>
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
         </a>
-        <button id="mobile-menu-btn" type="button" class="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-lg border border-slate-200 text-ocean-950 hover:bg-slate-50" aria-label="Buka Menu">
+        <button
+          id="mobile-menu-btn"
+          type="button"
+          class="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-lg border border-slate-200 text-ocean-950 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-cerulean-600"
+          aria-label="Buka Menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
         </button>
       </div>
@@ -96,7 +103,15 @@ const navItems = [
   const menu = document.getElementById('mobile-menu');
   if (btn && menu) {
     btn.addEventListener('click', () => {
-      menu.classList.toggle('hidden');
+      const isHidden = menu.classList.toggle('hidden');
+      btn.setAttribute('aria-expanded', String(!isHidden));
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !menu.classList.contains('hidden')) {
+        menu.classList.add('hidden');
+        btn.setAttribute('aria-expanded', 'false');
+        btn.focus();
+      }
     });
   }
 </script>

@@ -49,14 +49,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://smpwijay
     <link rel="preload" as="image" href="/images/hero/hero-home.webp" type="image/webp" fetchpriority="high" />
   )}
 
-  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono (Optimized Non-blocking) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'" />
-  <noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
-  </noscript>
+  <slot name="head" />
 </head>
 <body class="antialiased selection:bg-cerulean-600 selection:text-white bg-white text-slate-900 min-h-screen flex flex-col">
   <!-- Reusable SVG Definition -->

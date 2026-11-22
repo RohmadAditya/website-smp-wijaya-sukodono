@@ -1,7 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import spmb from '../content/data/spmb.json';
+import spmbRaw from '../content/data/spmb.json';
 import pengaturan from '../content/data/pengaturan.json';
+import type { Spmb } from '../content.config';
+
+const spmb = spmbRaw as Spmb;
 
 const waNumber = spmb.pendaftaran.kontak_wa || pengaturan.kontak?.whatsapp || '6281234567890';
 const waMessage = encodeURIComponent(

@@ -109,8 +109,8 @@ const categories = ['Semua', 'Olahraga', 'Seni & Budaya', 'Kepemimpinan', 'Keaga
 
                   <button
                     type="button"
-                    onclick={`openEkskulModal(${JSON.stringify(item)})`}
-                    class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-candiGold-400 hover:bg-yellow-300 text-ocean-950 text-xs font-bold transition shrink-0 shadow-md transform active:scale-95"
+                    data-ekskul={JSON.stringify(item)}
+                    class="open-ekskul-modal-btn inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-candiGold-400 hover:bg-yellow-300 text-ocean-950 text-xs font-bold transition shrink-0 shadow-md transform active:scale-95"
                     aria-label={`Lihat foto ${item.nama}`}
                   >
                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
