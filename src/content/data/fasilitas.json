@@ -5,7 +5,10 @@
       "nama": "Ruang Kelas Nyaman & Terang",
       "kategori": "Akademik",
       "deskripsi": "Ruang kelas kondusif dilengkapi ventilasi udara baik, papan tulis, dan fasilitas pendukung pembelajaran interaktif.",
-      "foto": "/images/uploads/logo-ra.png"
+      "foto": "/images/uploads/logo-ra.png",
+      "galeri": [
+        "/images/uploads/cropped-Screenshot-2025-07-21-at-15-54-28-Yellow-and-Blue-Modern-Logistics-Company-Profile-A4-Document-COMPANY-PROFILE-PT.-POPEYE-TRANS-LOGISTIK-1-.pdf.png"
+      ]
     },
     {
       "id": 2,
