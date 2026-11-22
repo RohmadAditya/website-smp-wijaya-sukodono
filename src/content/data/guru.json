@@ -1,0 +1,60 @@
+{
+  "daftar": [
+    {
+      "nama": "Yennis Fitriyan, S.E., M.Pd.",
+      "jabatan": "Kepala Sekolah",
+      "bidang": "Pimpinan",
+      "inisial": "YF",
+      "foto": ""
+    },
+    {
+      "nama": "Wakil Kepala Bidang Kurikulum",
+      "jabatan": "Wakasek Kurikulum",
+      "bidang": "Pimpinan",
+      "inisial": "WK",
+      "foto": ""
+    },
+    {
+      "nama": "Wakil Kepala Bidang Kesiswaan",
+      "jabatan": "Wakasek Kesiswaan",
+      "bidang": "Pimpinan",
+      "inisial": "KS",
+      "foto": ""
+    },
+    {
+      "nama": "Guru Bahasa Indonesia",
+      "jabatan": "Mata Pelajaran Bahasa Indonesia",
+      "bidang": "Guru Mapel",
+      "inisial": "BI",
+      "foto": ""
+    },
+    {
+      "nama": "Guru Matematika",
+      "jabatan": "Mata Pelajaran Matematika",
+      "bidang": "Guru Mapel",
+      "inisial": "MT",
+      "foto": ""
+    },
+    {
+      "nama": "Guru IPA Terpadu",
+      "jabatan": "Mata Pelajaran IPA",
+      "bidang": "Guru Mapel",
+      "inisial": "IP",
+      "foto": ""
+    },
+    {
+      "nama": "Pembina Olahraga & Voli",
+      "jabatan": "Guru PJOK & Pembina Ekskul",
+      "bidang": "Guru Mapel",
+      "inisial": "PJ",
+      "foto": ""
+    },
+    {
+      "nama": "Kepala Tata Usaha",
+      "jabatan": "Layanan Administrasi & SPMB",
+      "bidang": "Staf TU",
+      "inisial": "TU",
+      "foto": ""
+    }
+  ]
+}

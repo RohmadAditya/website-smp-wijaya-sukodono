@@ -1,0 +1,48 @@
+---
+---
+
+<div id="facility-modal" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+  <div class="bg-white rounded-2xl max-w-2xl w-full overflow-hidden shadow-2xl" id="modal-container">
+    <div id="modal-visual" class="aspect-[16/10] bg-gradient-to-br from-ocean-950 to-ocean-900 flex flex-col items-center justify-center p-8 text-center text-white relative">
+      <span id="modal-category" class="px-3 py-1 rounded-full bg-candiGold-400 text-ocean-950 font-mono text-xs font-bold mb-3"></span>
+      <div id="modal-title-overlay" class="text-2xl font-extrabold"></div>
+      <div class="text-xs text-sky-200 mt-2">Pratinjau Foto Fasilitas Resolusi Penuh (Diunggah via Pages CMS)</div>
+    </div>
+    <div class="p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div>
+        <h3 id="modal-title" class="text-lg font-bold text-ocean-950"></h3>
+        <p id="modal-desc" class="text-sm text-slate-600 mt-1"></p>
+      </div>
+      <button id="close-modal-btn" type="button" class="px-4 py-2 rounded-lg bg-ocean-950 text-white text-sm font-semibold shrink-0 hover:bg-ocean-900 transition">Tutup</button>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  const modal = document.getElementById('facility-modal');
+  const closeBtn = document.getElementById('close-modal-btn');
+  const container = document.getElementById('modal-container');
+
+  window.openFacilityModal = function(item) {
+    if (!modal) return;
+    document.getElementById('modal-category').textContent = item.kategori;
+    document.getElementById('modal-title-overlay').textContent = item.nama;
+    document.getElementById('modal-title').textContent = item.nama;
+    document.getElementById('modal-desc').textContent = item.deskripsi;
+    modal.classList.remove('hidden');
+  };
+
+  function closeModal() {
+    if (modal) modal.classList.add('hidden');
+  }
+
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (!container.contains(e.target)) closeModal();
+    });
+  }
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal();
+  });
+</script>

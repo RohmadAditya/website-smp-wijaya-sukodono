@@ -1,0 +1,174 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const allBerita = await getCollection('berita', ({ data }) => !data.draft);
+const sortedBerita = allBerita.sort((a, b) => b.data.tanggal.getTime() - a.data.tanggal.getTime());
+
+const featuredNews = sortedBerita[0];
+const remainingNews = sortedBerita.slice(1);
+
+const categories = ['Semua', 'Kegiatan', 'Prestasi', 'Pengumuman', 'Akademik'];
+
+function formatDate(date: Date) {
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
+  return `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
+}
+---
+
+<BaseLayout title="Berita & Prestasi — SMP Wijaya Sukodono" description="Dokumentasi kegiatan siswa, prestasi ekstrakurikuler, serta pengumuman resmi dari SMP Wijaya Sukodono." activeNav="berita">
+  <!-- Page Header -->
+  <div class="bg-ocean-950 text-white py-12 lg:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-xs font-mono text-wijayaCyan-400 uppercase tracking-wider mb-2">Beranda / Berita</div>
+      <h1 class="text-3xl sm:text-4xl font-extrabold">Berita, Prestasi &amp; Pengumuman</h1>
+      <p class="text-sky-100/85 mt-2 max-w-2xl">Dokumentasi kegiatan siswa, prestasi ekstrakurikuler, serta pengumuman resmi dari SMP Wijaya Sukodono.</p>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-10">
+    <!-- Filter & Search Controls -->
+    <div class="flex flex-col md:flex-row gap-4 justify-between items-stretch md:items-center">
+      <div class="flex flex-wrap gap-2" id="news-filters">
+        {categories.map((cat, idx) => (
+          <button
+            type="button"
+            data-category={cat}
+            class={`news-filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition ${
+              idx === 0 ? 'bg-ocean-950 text-white active' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+            }`}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+      <div class="relative w-full md:w-72">
+        <input
+          id="news-search"
+          type="text"
+          placeholder="Cari judul berita..."
+          class="w-full pl-4 pr-10 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-cerulean-600 focus:border-cerulean-600"
+        />
+        <svg class="w-4 h-4 text-slate-400 absolute right-3.5 top-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/></svg>
+      </div>
+    </div>
+
+    {featuredNews && (
+      <div id="featured-news-container">
+        <a
+          href={`/berita/${featuredNews.id}`}
+          class="news-item grid lg:grid-cols-12 rounded-2xl border border-slate-200 bg-white overflow-hidden hover:shadow-md transition group"
+          data-category={featuredNews.data.kategori}
+          data-title={featuredNews.data.title.toLowerCase()}
+          data-summary={featuredNews.data.ringkasan.toLowerCase()}
+        >
+          <div class="lg:col-span-5 min-h-[220px] bg-gradient-to-br from-ocean-950 to-ocean-900 p-6 flex flex-col justify-between">
+            <span class="self-start px-3 py-1 rounded-full bg-candiGold-400 text-ocean-950 font-mono text-xs font-bold">
+              {featuredNews.data.kategori} &bull; TERBARU
+            </span>
+            <div class="text-sky-200 font-mono text-xs">{formatDate(featuredNews.data.tanggal)}</div>
+          </div>
+          <div class="lg:col-span-7 p-6 sm:p-8 flex flex-col justify-center">
+            <h2 class="text-xl sm:text-2xl font-bold text-ocean-950 leading-snug group-hover:text-cerulean-600 transition">
+              {featuredNews.data.title}
+            </h2>
+            <p class="text-slate-600 mt-3 leading-relaxed">{featuredNews.data.ringkasan}</p>
+            <div class="pt-5 text-sm font-semibold text-cerulean-600 flex items-center gap-1">
+              <span>Baca Artikel Lengkap</span>
+              <span>&rarr;</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    )}
+
+    <!-- Remaining News Grid -->
+    <div id="all-news-grid" class="grid md:grid-cols-3 gap-6">
+      {remainingNews.map(item => (
+        <a
+          href={`/berita/${item.id}`}
+          class="news-item bg-white rounded-xl border border-slate-200 overflow-hidden hover:shadow-md hover:border-cerulean-600/40 transition flex flex-col group"
+          data-category={item.data.kategori}
+          data-title={item.data.title.toLowerCase()}
+          data-summary={item.data.ringkasan.toLowerCase()}
+        >
+          <div class="aspect-video bg-gradient-to-br from-ocean-950 to-ocean-900 p-4 flex flex-col justify-between relative">
+            <span class="self-start px-2.5 py-1 rounded-full bg-candiGold-400 text-ocean-950 font-mono text-[11px] font-bold">
+              {item.data.kategori}
+            </span>
+            <div class="flex items-center justify-between text-sky-200/80 text-xs font-mono">
+              <span>{formatDate(item.data.tanggal)}</span>
+              <span>SMP Wijaya</span>
+            </div>
+          </div>
+          <div class="p-5 flex-1 flex flex-col">
+            <h3 class="font-bold text-ocean-950 text-base leading-snug line-clamp-2 group-hover:text-cerulean-600 transition">
+              {item.data.title}
+            </h3>
+            <p class="text-sm text-slate-600 mt-2 line-clamp-3 flex-1">{item.data.ringkasan}</p>
+            <div class="pt-4 text-sm font-semibold text-cerulean-600 flex items-center gap-1">
+              <span>Baca Selengkapnya</span>
+              <span>&rarr;</span>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <div id="no-news-found" class="hidden text-center py-12 text-slate-500 text-sm">
+      Belum ada berita untuk filter atau kata kunci ini.
+    </div>
+  </div>
+
+  <script is:inline>
+    const filterBtns = document.querySelectorAll('#news-filters .news-filter-btn');
+    const searchInput = document.getElementById('news-search');
+    const items = document.querySelectorAll('.news-item');
+    const noResults = document.getElementById('no-news-found');
+
+    let currentCat = 'Semua';
+
+    function applyNewsFilters() {
+      const q = (searchInput?.value || '').toLowerCase().trim();
+      let visibleCount = 0;
+
+      items.forEach(el => {
+        const itemCat = el.getAttribute('data-category');
+        const itemTitle = el.getAttribute('data-title');
+        const itemSummary = el.getAttribute('data-summary');
+
+        const matchCat = currentCat === 'Semua' || itemCat === currentCat;
+        const matchQuery = !q || itemTitle.includes(q) || itemSummary.includes(q);
+
+        if (matchCat && matchQuery) {
+          el.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          el.classList.add('hidden');
+        }
+      });
+
+      if (noResults) {
+        noResults.classList.toggle('hidden', visibleCount > 0);
+      }
+    }
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => {
+          b.classList.remove('bg-ocean-950', 'text-white', 'active');
+          b.classList.add('bg-slate-100', 'text-slate-700');
+        });
+        btn.classList.add('bg-ocean-950', 'text-white', 'active');
+        btn.classList.remove('bg-slate-100', 'text-slate-700');
+
+        currentCat = btn.getAttribute('data-category');
+        applyNewsFilters();
+      });
+    });
+
+    if (searchInput) {
+      searchInput.addEventListener('input', applyNewsFilters);
+    }
+  </script>
+</BaseLayout>

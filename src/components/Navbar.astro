@@ -1,0 +1,87 @@
+---
+interface Props {
+  activeNav?: string;
+}
+
+const { activeNav = 'home' } = Astro.props;
+
+const navItems = [
+  { key: 'home', label: 'Beranda', href: '/' },
+  { key: 'profil', label: 'Tentang Kami', href: '/profil' },
+  { key: 'fasilitas', label: 'Fasilitas', href: '/fasilitas' },
+  { key: 'guru', label: 'Guru & Staf', href: '/guru' },
+  { key: 'berita', label: 'Berita', href: '/berita' },
+  { key: 'kontak', label: 'Kontak', href: '/kontak' },
+];
+---
+
+<header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-slate-200 shadow-sm">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="h-[72px] flex items-center justify-between gap-4">
+      <!-- Brand -->
+      <a href="/" class="flex items-center gap-3 text-left group focus:outline-none">
+        <svg viewBox="0 0 200 200" class="w-11 h-11 shrink-0 transition-transform duration-150 group-hover:scale-105" role="img" aria-label="Logo SMP Wijaya Sukodono">
+          <use href="#logo-smp-wijaya"></use>
+        </svg>
+        <div>
+          <div class="text-base sm:text-lg font-extrabold tracking-tight text-ocean-950 leading-tight">SMP WIJAYA</div>
+          <div class="text-[10.5px] font-mono font-semibold tracking-wider text-slate-500 uppercase">SUKODONO &bull; SIDOARJO</div>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center gap-1" aria-label="Navigasi Utama">
+        {navItems.map(item => {
+          const isActive = activeNav === item.key;
+          return (
+            <a
+              href={item.href}
+              class={`px-3 py-2 text-sm font-semibold rounded-md transition ${
+                isActive
+                  ? 'text-cerulean-600 bg-wijayaCyan-50'
+                  : 'text-slate-700 hover:text-cerulean-600 hover:bg-slate-50'
+              }`}
+            >
+              {item.label}
+            </a>
+          );
+        })}
+      </nav>
+
+      <!-- Desktop CTA + Mobile Toggle -->
+      <div class="flex items-center gap-2">
+        <a href="/ppdb" class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-cerulean-600 hover:bg-cerulean-700 text-white text-sm font-semibold shadow-sm transition">
+          <span>Daftar SPMB</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+        </a>
+        <button id="mobile-menu-btn" type="button" class="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-lg border border-slate-200 text-ocean-950 hover:bg-slate-50" aria-label="Buka Menu">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-200 bg-white">
+    <div class="px-4 pt-2 pb-4 space-y-1">
+      {navItems.map(item => (
+        <a href={item.href} class={`w-full block px-3 py-2.5 rounded-lg text-sm font-semibold ${activeNav === item.key ? 'text-cerulean-600 bg-wijayaCyan-50' : 'text-slate-800 hover:bg-slate-50'}`}>
+          {item.label}
+        </a>
+      ))}
+      <div class="pt-2">
+        <a href="/ppdb" class="w-full block text-center px-4 py-3 rounded-lg bg-cerulean-600 text-white text-sm font-semibold">Daftar SPMB 2026/2027</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script is:inline>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  if (btn && menu) {
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+  }
+</script>

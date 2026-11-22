@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://smpwijayasudono.sch.id/sitemap-index.xml

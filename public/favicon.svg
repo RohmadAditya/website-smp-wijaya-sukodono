@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <!-- Pentagonal Cyan Shield -->
+  <polygon points="100,10 186,68 158,186 42,186 14,68" fill="#38F2FF" stroke="#082F49" stroke-width="6" stroke-linejoin="round" />
+  <polygon points="100,17 179,71 153,180 47,180 21,71" fill="none" stroke="#0284C7" stroke-width="1.5" stroke-opacity="0.4" />
+  <!-- Stepped Candi Gate -->
+  <g fill="#FACC15" stroke="#082F49" stroke-width="3.2" stroke-linejoin="round">
+    <rect x="78" y="62" width="12" height="14" />
+    <rect x="69" y="76" width="21" height="13" />
+    <rect x="61" y="89" width="29" height="13" />
+    <rect x="52" y="102" width="38" height="14" />
+    <polygon points="44,116 90,116 90,129 36,129" />
+    <rect x="110" y="62" width="12" height="14" />
+    <rect x="110" y="76" width="21" height="13" />
+    <rect x="110" y="89" width="29" height="13" />
+    <rect x="110" y="102" width="38" height="14" />
+    <polygon points="110,116 156,116 164,129 110,129" />
+  </g>
+  <!-- Open White Book -->
+  <path d="M 100,111 C 87,104 71,105 64,114 L 62,147 C 72,141 88,142 100,149 C 112,142 128,141 138,147 L 136,114 C 129,105 113,104 100,111 Z" fill="#FFFFFF" stroke="#082F49" stroke-width="3.5" stroke-linejoin="round" />
+  <!-- Central Fountain Pen -->
+  <path d="M 96,55 L 104,55 L 104,114 L 107,124 L 100,136 L 93,124 L 96,114 Z" fill="#0284C7" stroke="#082F49" stroke-width="3" stroke-linejoin="round" />
+</svg>

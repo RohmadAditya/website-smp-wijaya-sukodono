@@ -1,0 +1,46 @@
+{
+  "daftar": [
+    {
+      "id": 1,
+      "nama": "Ruang Kelas Nyaman & Terang",
+      "kategori": "Akademik",
+      "deskripsi": "Ruang kelas kondusif dilengkapi ventilasi udara baik, papan tulis, dan fasilitas pendukung pembelajaran interaktif.",
+      "foto": ""
+    },
+    {
+      "id": 2,
+      "nama": "Laboratorium Komputer & TIK",
+      "kategori": "Laboratorium",
+      "deskripsi": "Sarana praktik literasi digital, simulasi ANBK, dan pembelajaran informatika bagi seluruh siswa.",
+      "foto": ""
+    },
+    {
+      "id": 3,
+      "nama": "Perpustakaan Sekolah",
+      "kategori": "Akademik",
+      "deskripsi": "Koleksi buku pelajaran, referensi bacaan fiksi-nonfiksi, serta sudut literasi pagi siswa SMP Wijaya.",
+      "foto": ""
+    },
+    {
+      "id": 4,
+      "nama": "Laboratorium IPA Terpadu",
+      "kategori": "Laboratorium",
+      "deskripsi": "Mendukung eksperimen fisika, biologi, dan kimia dasar untuk memperdalam pemahaman sains siswa.",
+      "foto": ""
+    },
+    {
+      "id": 5,
+      "nama": "Lapangan Olahraga & Voli",
+      "kategori": "Olahraga & Ibadah",
+      "deskripsi": "Arena latihan rutin ekstrakurikuler bola voli, upacara bendera, serta turnamen pelajar tingkat Kecamatan Sukodono.",
+      "foto": ""
+    },
+    {
+      "id": 6,
+      "nama": "Musholla Sekolah",
+      "kategori": "Olahraga & Ibadah",
+      "deskripsi": "Pusat pembinaan iman dan takwa, sholat dhuha, sholat berjamaah, serta kegiatan keagamaan siswa.",
+      "foto": ""
+    }
+  ]
+}

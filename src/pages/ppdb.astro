@@ -1,0 +1,144 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import pengaturan from '../content/data/pengaturan.json';
+---
+
+<BaseLayout title="Informasi SPMB 2026/2027 — SMP Wijaya Sukodono" description="Sistem Penerimaan Murid Baru (SPMB) SMP Wijaya Sukodono Tahun Ajaran 2026/2027: alur pendaftaran, syarat berkas, jadwal gelombang, dan formulir pendaftaran." activeNav="ppdb">
+  <!-- Page Header -->
+  <div class="bg-ocean-950 text-white py-12 lg:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-wrap items-center gap-3 mb-3">
+        <span class="text-xs font-mono text-wijayaCyan-400 uppercase tracking-wider">Beranda / SPMB</span>
+        <span class={`px-2.5 py-0.5 rounded-full text-xs font-mono font-bold ${pengaturan.ppdb_aktif ? 'bg-candiGold-400 text-ocean-950' : 'bg-slate-600 text-white'}`}>
+          STATUS: {pengaturan.ppdb_aktif ? 'DIBUKA' : 'DITUTUP'}
+        </span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-extrabold">Sistem Penerimaan Murid Baru (SPMB) 2026/2027</h1>
+      <p class="text-sky-100/85 mt-2 max-w-2xl">Panduan lengkap alur pendaftaran, kelengkapan berkas, jadwal gelombang, dan informasi layanan pendaftaran calon siswa baru SMP Wijaya Sukodono.</p>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 space-y-14">
+    <!-- 4 Stepper Cards -->
+    <div>
+      <h2 class="text-xl sm:text-2xl font-bold text-ocean-950 mb-6">Alur Pendaftaran (4 Langkah Mudah)</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div class="rounded-xl border border-slate-200 p-5 bg-white shadow-sm">
+          <div class="w-9 h-9 rounded-lg bg-ocean-950 text-candiGold-400 font-mono font-bold flex items-center justify-center mb-3">01</div>
+          <h3 class="font-bold text-ocean-950">Isi Formulir</h3>
+          <p class="text-sm text-slate-600 mt-1">Mengisi formulir pendaftaran online melalui Google Forms sekolah atau datang langsung ke kantor TU.</p>
+        </div>
+        <div class="rounded-xl border border-slate-200 p-5 bg-white shadow-sm">
+          <div class="w-9 h-9 rounded-lg bg-ocean-950 text-candiGold-400 font-mono font-bold flex items-center justify-center mb-3">02</div>
+          <h3 class="font-bold text-ocean-950">Siapkan Berkas</h3>
+          <p class="text-sm text-slate-600 mt-1">Melengkapi fotokopi Kartu Keluarga, Akta Kelahiran, Surat Keterangan Lulus/Ijazah SD/MI, dan pas foto.</p>
+        </div>
+        <div class="rounded-xl border border-slate-200 p-5 bg-white shadow-sm">
+          <div class="w-9 h-9 rounded-lg bg-ocean-950 text-candiGold-400 font-mono font-bold flex items-center justify-center mb-3">03</div>
+          <h3 class="font-bold text-ocean-950">Verifikasi Panitia</h3>
+          <p class="text-sm text-slate-600 mt-1">Verifikasi dokumen oleh panitia SPMB di kantor SMP Wijaya Sukodono pada jam kerja sekolah.</p>
+        </div>
+        <div class="rounded-xl border border-slate-200 p-5 bg-white shadow-sm">
+          <div class="w-9 h-9 rounded-lg bg-ocean-950 text-candiGold-400 font-mono font-bold flex items-center justify-center mb-3">04</div>
+          <h3 class="font-bold text-ocean-950">Daftar Ulang &amp; MPLS</h3>
+          <p class="text-sm text-slate-600 mt-1">Konfirmasi daftar ulang dan mengikuti Masa Pengenalan Lingkungan Sekolah (MPLS) Tahun Ajaran baru.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Syarat & Jadwal -->
+    <div class="grid lg:grid-cols-2 gap-8">
+      <div class="rounded-2xl border border-slate-200 p-7 bg-white shadow-sm">
+        <h3 class="text-lg font-bold text-ocean-950 mb-4">Persyaratan Berkas Pendaftaran</h3>
+        <ul class="space-y-2.5 text-sm text-slate-700">
+          <li class="flex gap-2.5"><span class="text-cerulean-600 font-bold">&check;</span> Lulusan SD / MI atau sederajat (dibuktikan dengan SKL / Ijazah).</li>
+          <li class="flex gap-2.5"><span class="text-cerulean-600 font-bold">&check;</span> Fotokopi Kartu Keluarga (KK) sebanyak 2 lembar.</li>
+          <li class="flex gap-2.5"><span class="text-cerulean-600 font-bold">&check;</span> Fotokopi Akta Kelahiran sebanyak 2 lembar.</li>
+          <li class="flex gap-2.5"><span class="text-cerulean-600 font-bold">&check;</span> Fotokopi NISN (Nomor Induk Siswa Nasional) &amp; KIP/PKH (jika memiliki).</li>
+          <li class="flex gap-2.5"><span class="text-cerulean-600 font-bold">&check;</span> Pas foto berwarna ukuran 3&times;4 sebanyak 4 lembar.</li>
+        </ul>
+      </div>
+      <div class="rounded-2xl border border-slate-200 p-7 bg-slate-50">
+        <h3 class="text-lg font-bold text-ocean-950 mb-4">Jadwal &amp; Layanan Pendaftaran</h3>
+        <div class="space-y-3 text-sm">
+          <div class="p-3.5 rounded-lg bg-white border border-slate-200 flex justify-between items-center">
+            <span class="font-semibold text-ocean-950">Gelombang I (Inden)</span>
+            <span class="font-mono text-xs text-cerulean-600 font-semibold">Februari – April 2026</span>
+          </div>
+          <div class="p-3.5 rounded-lg bg-white border border-slate-200 flex justify-between items-center">
+            <span class="font-semibold text-ocean-950">Gelombang II (Reguler)</span>
+            <span class="font-mono text-xs text-cerulean-600 font-semibold">Mei – Juli 2026</span>
+          </div>
+          <div class="p-3.5 rounded-lg bg-white border border-slate-200 flex justify-between items-center">
+            <span class="font-semibold text-ocean-950">Jam Layanan Tatap Muka</span>
+            <span class="font-mono text-xs text-slate-600">Senin–Sabtu, 07.30–13.00 WIB</span>
+          </div>
+        </div>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a
+            href={pengaturan.ppdb_link || 'https://forms.google.com'}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-5 py-3 rounded-lg bg-cerulean-600 hover:bg-cerulean-700 text-white text-sm font-semibold transition inline-block"
+          >
+            Isi Formulir Online (Google Forms)
+          </a>
+          <a
+            href={`https://wa.me/${pengaturan.kontak.whatsapp}?text=Halo%20Panitia%20SPMB%20SMP%20Wijaya%20Sukodono,%20saya%20ingin%20bertanya%20mengenai%20pendaftaran.`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-5 py-3 rounded-lg border border-slate-300 bg-white hover:bg-slate-50 text-ocean-950 text-sm font-semibold transition inline-block"
+          >
+            Tanya Panitia via WA
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ Accordion -->
+    <div class="max-w-3xl">
+      <h2 class="text-xl sm:text-2xl font-bold text-ocean-950 mb-5">Pertanyaan yang Sering Diajukan (FAQ)</h2>
+      <div class="space-y-3" id="ppdb-faq">
+        <div class="rounded-xl border border-slate-200 bg-white overflow-hidden shadow-sm">
+          <button type="button" class="faq-btn w-full px-5 py-4 text-left font-semibold text-ocean-950 flex justify-between items-center text-sm sm:text-base">
+            <span>Apakah pendaftaran dapat dilakukan langsung ke sekolah?</span>
+            <span class="faq-icon font-mono text-cerulean-600 font-bold">+</span>
+          </button>
+          <div class="faq-body hidden px-5 pb-4 text-sm text-slate-600 leading-relaxed">
+            Ya. Orang tua atau wali murid dapat datang langsung ke ruang Tata Usaha SMP Wijaya Sukodono di Desa Pekarungan pada jam kerja Senin–Sabtu pukul 07.30–13.00 WIB.
+          </div>
+        </div>
+        <div class="rounded-xl border border-slate-200 bg-white overflow-hidden shadow-sm">
+          <button type="button" class="faq-btn w-full px-5 py-4 text-left font-semibold text-ocean-950 flex justify-between items-center text-sm sm:text-base">
+            <span>Apakah tersedia program ekstrakurikuler unggulan bagi siswa baru?</span>
+            <span class="faq-icon font-mono text-cerulean-600 font-bold">+</span>
+          </button>
+          <div class="faq-body hidden px-5 pb-4 text-sm text-slate-600 leading-relaxed">
+            Tersedia beragam ekstrakurikuler seperti Marching Band / Drumband, Bola Voli, Pramuka, Paskibra, Seni Tari, serta pembinaan keagamaan yang dapat dipilih siswa sejak kelas VII.
+          </div>
+        </div>
+        <div class="rounded-xl border border-slate-200 bg-white overflow-hidden shadow-sm">
+          <button type="button" class="faq-btn w-full px-5 py-4 text-left font-semibold text-ocean-950 flex justify-between items-center text-sm sm:text-base">
+            <span>Apakah calon siswa pemegang KIP / PIP dapat mendaftar?</span>
+            <span class="faq-icon font-mono text-cerulean-600 font-bold">+</span>
+          </button>
+          <div class="faq-body hidden px-5 pb-4 text-sm text-slate-600 leading-relaxed">
+            Bisa. Silakan melampirkan fotokopi kartu KIP/PKH saat verifikasi berkas agar dapat didata dalam program bantuan pendidikan sesuai ketentuan yang berlaku.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script is:inline>
+    const faqBtns = document.querySelectorAll('.faq-btn');
+    faqBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const body = btn.nextElementSibling;
+        const icon = btn.querySelector('.faq-icon');
+        const isHidden = body.classList.toggle('hidden');
+        if (icon) icon.textContent = isHidden ? '+' : '−';
+      });
+    });
+  </script>
+</BaseLayout>
