@@ -8,9 +8,9 @@ import pengaturan from '../content/data/pengaturan.json';
   <div class="relative bg-ocean-950 text-white py-14 lg:py-20 overflow-hidden">
     <!-- Background Image with Gradient Overlay -->
     <img
-      src="/images/hero/hero-ppdb.jpg"
+      src="/images/hero/hero-ppdb.webp"
       alt="Penerimaan Peserta Didik Baru SPMB SMP Wijaya Sukodono"
-      class="absolute inset-0 w-full h-full object-cover object-center"
+      class="absolute inset-0 w-full h-full object-cover object-center animate-hero-bg"
       loading="eager"
       fetchpriority="high"
     />
@@ -18,7 +18,7 @@ import pengaturan from '../content/data/pengaturan.json';
     <div class="absolute inset-0 bg-ocean-950/40"></div>
 
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-wrap items-center gap-3 mb-3">
+      <div class="flex flex-wrap items-center gap-3 mb-3 animate-hero-badge">
         <span class="inline-flex items-center px-3 py-1 rounded-full bg-ocean-900/80 border border-wijayaCyan-400/30 text-xs font-mono text-wijayaCyan-300 uppercase tracking-wider">
           Beranda / SPMB
         </span>
@@ -26,32 +26,32 @@ import pengaturan from '../content/data/pengaturan.json';
           STATUS: {pengaturan.ppdb_aktif ? 'DIBUKA' : 'DITUTUP'}
         </span>
       </div>
-      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">Sistem Penerimaan Murid Baru (SPMB) 2026/2027</h1>
-      <p class="text-sky-100/90 mt-3 max-w-2xl text-base sm:text-lg leading-relaxed">Panduan lengkap alur pendaftaran, kelengkapan berkas, jadwal gelombang, dan informasi layanan pendaftaran calon siswa baru SMP Wijaya Sukodono.</p>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight animate-hero-title">Sistem Penerimaan Murid Baru (SPMB) 2026/2027</h1>
+      <p class="text-sky-100/90 mt-3 max-w-2xl text-base sm:text-lg leading-relaxed animate-hero-desc">Panduan lengkap alur pendaftaran, kelengkapan berkas, jadwal gelombang, dan informasi layanan pendaftaran calon siswa baru SMP Wijaya Sukodono.</p>
     </div>
   </div>
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 space-y-14">
     <!-- 4 Stepper Cards -->
-    <div>
+    <div class="reveal">
       <h2 class="text-xl sm:text-2xl font-bold text-ocean-950 mb-6">Alur Pendaftaran (4 Langkah Mudah)</h2>
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        <div class="rounded-xl border border-slate-200 p-5 bg-white shadow-sm">
+        <div class="rounded-xl border border-slate-200 p-5 bg-white shadow-sm card-interactive reveal delay-75">
           <div class="w-9 h-9 rounded-lg bg-ocean-950 text-candiGold-400 font-mono font-bold flex items-center justify-center mb-3">01</div>
           <h3 class="font-bold text-ocean-950">Isi Formulir</h3>
           <p class="text-sm text-slate-600 mt-1">Mengisi formulir pendaftaran online melalui Google Forms sekolah atau datang langsung ke kantor TU.</p>
         </div>
-        <div class="rounded-xl border border-slate-200 p-5 bg-white shadow-sm">
+        <div class="rounded-xl border border-slate-200 p-5 bg-white shadow-sm card-interactive reveal delay-150">
           <div class="w-9 h-9 rounded-lg bg-ocean-950 text-candiGold-400 font-mono font-bold flex items-center justify-center mb-3">02</div>
           <h3 class="font-bold text-ocean-950">Siapkan Berkas</h3>
           <p class="text-sm text-slate-600 mt-1">Melengkapi fotokopi Kartu Keluarga, Akta Kelahiran, Surat Keterangan Lulus/Ijazah SD/MI, dan pas foto.</p>
         </div>
-        <div class="rounded-xl border border-slate-200 p-5 bg-white shadow-sm">
+        <div class="rounded-xl border border-slate-200 p-5 bg-white shadow-sm card-interactive reveal delay-200">
           <div class="w-9 h-9 rounded-lg bg-ocean-950 text-candiGold-400 font-mono font-bold flex items-center justify-center mb-3">03</div>
           <h3 class="font-bold text-ocean-950">Verifikasi Panitia</h3>
           <p class="text-sm text-slate-600 mt-1">Verifikasi dokumen oleh panitia SPMB di kantor SMP Wijaya Sukodono pada jam kerja sekolah.</p>
         </div>
-        <div class="rounded-xl border border-slate-200 p-5 bg-white shadow-sm">
+        <div class="rounded-xl border border-slate-200 p-5 bg-white shadow-sm card-interactive reveal delay-250">
           <div class="w-9 h-9 rounded-lg bg-ocean-950 text-candiGold-400 font-mono font-bold flex items-center justify-center mb-3">04</div>
           <h3 class="font-bold text-ocean-950">Daftar Ulang &amp; MPLS</h3>
           <p class="text-sm text-slate-600 mt-1">Konfirmasi daftar ulang dan mengikuti Masa Pengenalan Lingkungan Sekolah (MPLS) Tahun Ajaran baru.</p>
@@ -60,7 +60,7 @@ import pengaturan from '../content/data/pengaturan.json';
     </div>
 
     <!-- Syarat & Jadwal -->
-    <div class="grid lg:grid-cols-2 gap-8">
+    <div class="grid lg:grid-cols-2 gap-8 reveal">
       <div class="rounded-2xl border border-slate-200 p-7 bg-white shadow-sm">
         <h3 class="text-lg font-bold text-ocean-950 mb-4">Persyaratan Berkas Pendaftaran</h3>
         <ul class="space-y-2.5 text-sm text-slate-700">

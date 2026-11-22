@@ -11,9 +11,9 @@ const categories = ['Semua', 'Pimpinan', 'Guru Mapel', 'Staf TU'];
   <div class="relative bg-ocean-950 text-white py-14 lg:py-20 overflow-hidden">
     <!-- Background Image with Gradient Overlay -->
     <img
-      src="/images/hero/hero-guru.jpg"
+      src="/images/hero/hero-guru.webp"
       alt="Dewan Guru dan Tenaga Pendidik SMP Wijaya Sukodono"
-      class="absolute inset-0 w-full h-full object-cover object-center"
+      class="absolute inset-0 w-full h-full object-cover object-center animate-hero-bg"
       loading="eager"
       fetchpriority="high"
     />
@@ -21,17 +21,17 @@ const categories = ['Semua', 'Pimpinan', 'Guru Mapel', 'Staf TU'];
     <div class="absolute inset-0 bg-ocean-950/40"></div>
 
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="inline-flex items-center px-3 py-1 rounded-full bg-ocean-900/80 border border-wijayaCyan-400/30 text-xs font-mono text-wijayaCyan-300 uppercase tracking-wider mb-3">
+      <div class="inline-flex items-center px-3 py-1 rounded-full bg-ocean-900/80 border border-wijayaCyan-400/30 text-xs font-mono text-wijayaCyan-300 uppercase tracking-wider mb-3 animate-hero-badge">
         Beranda / Guru &amp; Staf
       </div>
-      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">Direktori Tenaga Pendidik &amp; Kependidikan</h1>
-      <p class="text-sky-100/90 mt-3 max-w-2xl text-base sm:text-lg leading-relaxed">Tenaga pengajar berdedikasi dan staf Tata Usaha yang mendampingi perkembangan akademik dan karakter siswa SMP Wijaya Sukodono.</p>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight animate-hero-title">Direktori Tenaga Pendidik &amp; Kependidikan</h1>
+      <p class="text-sky-100/90 mt-3 max-w-2xl text-base sm:text-lg leading-relaxed animate-hero-desc">Tenaga pengajar berdedikasi dan staf Tata Usaha yang mendampingi perkembangan akademik dan karakter siswa SMP Wijaya Sukodono.</p>
     </div>
   </div>
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-10">
     <!-- Search & Filter Controls -->
-    <div class="flex flex-col md:flex-row gap-4 justify-between items-stretch md:items-center">
+    <div class="flex flex-col md:flex-row gap-4 justify-between items-stretch md:items-center reveal">
       <div class="flex flex-wrap gap-2" id="teacher-filters">
         {categories.map((cat, idx) => (
           <button
@@ -58,11 +58,11 @@ const categories = ['Semua', 'Pimpinan', 'Guru Mapel', 'Staf TU'];
 
     <!-- Cards Grid -->
     <div id="teachers-grid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      {allGuru.map(g => {
+      {allGuru.map((g, idx) => {
         const isLeader = g.bidang === 'Pimpinan';
         return (
           <div
-            class={`teacher-card bg-white rounded-xl border ${isLeader ? 'border-cerulean-600/40 ring-1 ring-cerulean-600/10' : 'border-slate-200'} p-5 text-center hover:shadow-md transition`}
+            class={`teacher-card bg-white rounded-xl border ${isLeader ? 'border-cerulean-600/40 ring-1 ring-cerulean-600/10' : 'border-slate-200'} p-5 text-center card-interactive transition reveal delay-${(idx % 4 + 1) * 75}`}
             data-bidang={g.bidang}
             data-name={g.nama.toLowerCase()}
             data-role={g.jabatan.toLowerCase()}

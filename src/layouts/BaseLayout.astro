@@ -44,10 +44,19 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://smpwijay
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={image} />
 
-  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <!-- Preload Critical Hero Image on Home -->
+  {activeNav === 'home' && (
+    <link rel="preload" as="image" href="/images/hero/hero-home.webp" type="image/webp" fetchpriority="high" />
+  )}
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono (Optimized Non-blocking) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
+  </noscript>
 </head>
 <body class="antialiased selection:bg-cerulean-600 selection:text-white bg-white text-slate-900 min-h-screen flex flex-col">
   <!-- Reusable SVG Definition -->
@@ -99,16 +108,43 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://smpwijay
   <TopBarSPMB />
   <Navbar activeNav={activeNav} />
   
-  <div class="flex-1">
+  <main id="main-content" class="flex-1">
     <slot />
-  </div>
+  </main>
 
   <Footer />
 
   <!-- Global Toast -->
   <div id="toast" class="hidden fixed bottom-10 left-1/2 -translate-x-1/2 z-50 px-5 py-3 rounded-xl bg-ocean-950 text-white text-sm font-medium shadow-xl border border-wijayaCyan-500/40 transition"></div>
 
+  <!-- Scroll-Driven Reveal Observer -->
   <script is:inline>
+    (function initScrollReveal() {
+      if (typeof window === 'undefined') return;
+      
+      const reveals = document.querySelectorAll('.reveal');
+      if (!reveals.length) return;
+
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        reveals.forEach(el => el.classList.add('reveal-visible'));
+        return;
+      }
+
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('reveal-visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      reveals.forEach(el => observer.observe(el));
+    })();
+
     window.showToast = function(msg) {
       const el = document.getElementById('toast');
       if (!el) return;

@@ -21,9 +21,9 @@ function formatDate(date: Date) {
   <div class="relative bg-ocean-950 text-white py-14 lg:py-20 overflow-hidden">
     <!-- Background Image with Gradient Overlay -->
     <img
-      src="/images/hero/hero-berita.jpg"
+      src="/images/hero/hero-berita.webp"
       alt="Dokumentasi Prestasi dan Kegiatan SMP Wijaya Sukodono"
-      class="absolute inset-0 w-full h-full object-cover object-center"
+      class="absolute inset-0 w-full h-full object-cover object-center animate-hero-bg"
       loading="eager"
       fetchpriority="high"
     />
@@ -31,17 +31,17 @@ function formatDate(date: Date) {
     <div class="absolute inset-0 bg-ocean-950/40"></div>
 
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="inline-flex items-center px-3 py-1 rounded-full bg-ocean-900/80 border border-wijayaCyan-400/30 text-xs font-mono text-wijayaCyan-300 uppercase tracking-wider mb-3">
+      <div class="inline-flex items-center px-3 py-1 rounded-full bg-ocean-900/80 border border-wijayaCyan-400/30 text-xs font-mono text-wijayaCyan-300 uppercase tracking-wider mb-3 animate-hero-badge">
         Beranda / Berita
       </div>
-      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">Berita, Prestasi &amp; Pengumuman</h1>
-      <p class="text-sky-100/90 mt-3 max-w-2xl text-base sm:text-lg leading-relaxed">Dokumentasi kegiatan siswa, prestasi drumband &amp; olahraga, serta pengumuman resmi dari SMP Wijaya Sukodono.</p>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight animate-hero-title">Berita, Prestasi &amp; Pengumuman</h1>
+      <p class="text-sky-100/90 mt-3 max-w-2xl text-base sm:text-lg leading-relaxed animate-hero-desc">Dokumentasi kegiatan siswa, prestasi drumband &amp; olahraga, serta pengumuman resmi dari SMP Wijaya Sukodono.</p>
     </div>
   </div>
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-10">
     <!-- Filter & Search Controls -->
-    <div class="flex flex-col md:flex-row gap-4 justify-between items-stretch md:items-center">
+    <div class="flex flex-col md:flex-row gap-4 justify-between items-stretch md:items-center reveal">
       <div class="flex flex-wrap gap-2" id="news-filters">
         {categories.map((cat, idx) => (
           <button
@@ -67,10 +67,10 @@ function formatDate(date: Date) {
     </div>
 
     {featuredNews && (
-      <div id="featured-news-container">
+      <div id="featured-news-container" class="reveal">
         <a
           href={`/berita/${featuredNews.id}`}
-          class="news-item grid lg:grid-cols-12 rounded-2xl border border-slate-200 bg-white overflow-hidden hover:shadow-md transition group"
+          class="news-item grid lg:grid-cols-12 rounded-2xl border border-slate-200 bg-white overflow-hidden card-interactive transition group"
           data-category={featuredNews.data.kategori}
           data-title={featuredNews.data.title.toLowerCase()}
           data-summary={featuredNews.data.ringkasan.toLowerCase()}
@@ -97,10 +97,10 @@ function formatDate(date: Date) {
 
     <!-- Remaining News Grid -->
     <div id="all-news-grid" class="grid md:grid-cols-3 gap-6">
-      {remainingNews.map(item => (
+      {remainingNews.map((item, idx) => (
         <a
           href={`/berita/${item.id}`}
-          class="news-item bg-white rounded-xl border border-slate-200 overflow-hidden hover:shadow-md hover:border-cerulean-600/40 transition flex flex-col group"
+          class={`news-item bg-white rounded-xl border border-slate-200 overflow-hidden card-interactive transition flex flex-col group reveal delay-${(idx % 3 + 1) * 100}`}
           data-category={item.data.kategori}
           data-title={item.data.title.toLowerCase()}
           data-summary={item.data.ringkasan.toLowerCase()}

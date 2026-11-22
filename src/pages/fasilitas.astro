@@ -12,9 +12,9 @@ const categories = ['Semua', 'Akademik', 'Laboratorium', 'Olahraga & Ibadah'];
   <div class="relative bg-ocean-950 text-white py-14 lg:py-20 overflow-hidden">
     <!-- Background Image with Gradient Overlay -->
     <img
-      src="/images/hero/hero-fasilitas.jpg"
+      src="/images/hero/hero-fasilitas.webp"
       alt="Sarana Prasarana dan Fasilitas Sekolah SMP Wijaya Sukodono"
-      class="absolute inset-0 w-full h-full object-cover object-center"
+      class="absolute inset-0 w-full h-full object-cover object-center animate-hero-bg"
       loading="eager"
       fetchpriority="high"
     />
@@ -22,17 +22,17 @@ const categories = ['Semua', 'Akademik', 'Laboratorium', 'Olahraga & Ibadah'];
     <div class="absolute inset-0 bg-ocean-950/40"></div>
 
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="inline-flex items-center px-3 py-1 rounded-full bg-ocean-900/80 border border-wijayaCyan-400/30 text-xs font-mono text-wijayaCyan-300 uppercase tracking-wider mb-3">
+      <div class="inline-flex items-center px-3 py-1 rounded-full bg-ocean-900/80 border border-wijayaCyan-400/30 text-xs font-mono text-wijayaCyan-300 uppercase tracking-wider mb-3 animate-hero-badge">
         Beranda / Fasilitas
       </div>
-      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">Sarana &amp; Prasarana Sekolah</h1>
-      <p class="text-sky-100/90 mt-3 max-w-2xl text-base sm:text-lg leading-relaxed">Fasilitas belajar yang mendukung kegiatan akademik, praktikum sains &amp; komputer, olahraga, serta pembinaan ibadah siswa.</p>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight animate-hero-title">Sarana &amp; Prasarana Sekolah</h1>
+      <p class="text-sky-100/90 mt-3 max-w-2xl text-base sm:text-lg leading-relaxed animate-hero-desc">Fasilitas belajar yang mendukung kegiatan akademik, praktikum sains &amp; komputer, olahraga, serta pembinaan ibadah siswa.</p>
     </div>
   </div>
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <!-- Filter Tabs -->
-    <div class="flex flex-wrap gap-2 mb-8" id="facility-filter-tabs">
+    <div class="flex flex-wrap gap-2 mb-8 reveal" id="facility-filter-tabs">
       {categories.map((cat, idx) => (
         <button
           type="button"
@@ -48,9 +48,9 @@ const categories = ['Semua', 'Akademik', 'Laboratorium', 'Olahraga & Ibadah'];
 
     <!-- Grid Cards -->
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="facilities-grid">
-      {allFacilities.map(f => (
+      {allFacilities.map((f, idx) => (
         <div
-          class="facility-card bg-white rounded-xl border border-slate-200 overflow-hidden hover:shadow-md hover:border-cerulean-600/40 transition flex flex-col"
+          class={`facility-card bg-white rounded-xl border border-slate-200 overflow-hidden card-interactive transition flex flex-col reveal delay-${(idx % 3 + 1) * 75}`}
           data-cat={f.kategori}
         >
           <div class="aspect-[4/3] bg-gradient-to-br from-ocean-950 to-ocean-900 p-5 flex flex-col justify-between relative overflow-hidden">

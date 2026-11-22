@@ -27,37 +27,37 @@ function formatDate(date: Date) {
   <div class="relative bg-ocean-950 text-white overflow-hidden">
     <!-- Background Image with Gradient Overlay -->
     <img
-      src="/images/hero/hero-home.jpg"
+      src="/images/hero/hero-home.webp"
       alt="Gedung dan Lingkungan Kampus SMP Wijaya Sukodono"
-      class="absolute inset-0 w-full h-full object-cover object-center"
+      class="absolute inset-0 w-full h-full object-cover object-center animate-hero-bg"
       loading="eager"
       fetchpriority="high"
     />
     <div class="absolute inset-0 bg-gradient-to-b from-ocean-950/85 via-ocean-950/80 to-ocean-950/95"></div>
 
     <div class="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 text-center">
-      <div class="inline-flex items-center px-3.5 py-1 rounded-full border border-white/20 bg-white/10 text-xs font-mono font-medium text-sky-100 mb-6 backdrop-blur-md">
+      <div class="inline-flex items-center px-3.5 py-1 rounded-full border border-white/20 bg-white/10 text-xs font-mono font-medium text-sky-100 mb-6 backdrop-blur-md animate-hero-badge">
         NPSN {pengaturan.npsn} &bull; {pengaturan.akreditasi.toUpperCase()} &bull; SIDOARJO
       </div>
 
-      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.16] text-white">
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.16] text-white animate-hero-title">
         Membangun Generasi <span class="text-candiGold-400">Berilmu, Berkarakter,</span> &amp; Berprestasi
       </h1>
 
-      <p class="text-base sm:text-lg text-sky-100/90 leading-relaxed max-w-xl mx-auto mt-5">
+      <p class="text-base sm:text-lg text-sky-100/90 leading-relaxed max-w-xl mx-auto mt-5 animate-hero-desc">
         Enam dekade mengabdi mencetak insan berakhlak mulia, unggul akademik, dan berprestasi di Pekarungan, Sukodono.
       </p>
 
-      <div class="flex flex-wrap items-center justify-center gap-3.5 pt-8">
+      <div class="flex flex-wrap items-center justify-center gap-3.5 pt-8 animate-hero-cta">
         <a
           href="/ppdb"
-          class="px-6 py-3 rounded-lg bg-candiGold-400 hover:bg-yellow-300 text-ocean-950 font-bold text-sm sm:text-base shadow-lg transition transform hover:-translate-y-0.5 inline-block"
+          class="px-6 py-3 rounded-lg bg-candiGold-400 hover:bg-yellow-300 text-ocean-950 font-bold text-sm sm:text-base shadow-lg transition transform hover:-translate-y-0.5 active:scale-[0.98] inline-block"
         >
           Informasi SPMB 2026/2027
         </a>
         <a
           href="/profil"
-          class="px-6 py-3 rounded-lg border border-white/30 hover:bg-white/10 text-white font-semibold text-sm sm:text-base backdrop-blur-sm transition inline-block"
+          class="px-6 py-3 rounded-lg border border-white/30 hover:bg-white/10 text-white font-semibold text-sm sm:text-base backdrop-blur-sm transition transform hover:-translate-y-0.5 active:scale-[0.98] inline-block"
         >
           Profil Sekolah
         </a>
@@ -69,14 +69,14 @@ function formatDate(date: Date) {
   <div class="bg-white py-16 lg:py-24 border-b border-slate-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-12 gap-10 items-center">
-        <div class="lg:col-span-4">
-          <div class="rounded-2xl overflow-hidden border border-slate-200 bg-slate-50 shadow-sm">
-            <div class="aspect-[4/5] bg-gradient-to-br from-ocean-950 to-ocean-900 flex flex-col items-center justify-center p-6 text-center relative overflow-hidden">
+        <div class="lg:col-span-4 reveal">
+          <div class="rounded-2xl overflow-hidden border border-slate-200 bg-slate-50 shadow-sm card-interactive">
+            <div class="aspect-[4/5] bg-gradient-to-br from-ocean-950 to-ocean-900 flex flex-col items-center justify-center p-6 text-center relative overflow-hidden group">
               {pengaturan.sambutan_kepsek.foto ? (
-                <img src={pengaturan.sambutan_kepsek.foto} alt={pengaturan.sambutan_kepsek.nama} class="w-full h-full object-cover" />
+                <img src={pengaturan.sambutan_kepsek.foto} alt={pengaturan.sambutan_kepsek.nama} class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
               ) : (
                 <>
-                  <div class="w-28 h-28 rounded-full bg-wijayaCyan-50 border-4 border-candiGold-400 flex items-center justify-center text-ocean-950 text-3xl font-extrabold mb-4 shadow-lg">YF</div>
+                  <div class="w-28 h-28 rounded-full bg-wijayaCyan-50 border-4 border-candiGold-400 flex items-center justify-center text-ocean-950 text-3xl font-extrabold mb-4 shadow-lg transition duration-300 group-hover:scale-105">YF</div>
                   <div class="text-white font-bold text-lg">{pengaturan.sambutan_kepsek.nama}</div>
                   <div class="text-xs font-mono text-wijayaCyan-400 uppercase tracking-wider mt-1">Kepala SMP Wijaya Sukodono</div>
                 </>
@@ -84,7 +84,7 @@ function formatDate(date: Date) {
             </div>
           </div>
         </div>
-        <div class="lg:col-span-8 space-y-5">
+        <div class="lg:col-span-8 space-y-5 reveal delay-150">
           <div class="text-xs font-mono font-semibold uppercase tracking-widest text-cerulean-600">Sambutan Kepala Sekolah</div>
           <h2 class="text-2xl sm:text-3xl font-bold text-ocean-950 tracking-tight">
             Bersama Menyiapkan Generasi Unggul yang Siap Melangkah Lebih Jauh
@@ -103,8 +103,9 @@ function formatDate(date: Date) {
               <div class="font-bold text-ocean-950">{pengaturan.sambutan_kepsek.nama}</div>
               <div class="text-xs text-slate-500">Kepala Sekolah &bull; SMP Wijaya Sukodono</div>
             </div>
-            <a href="/profil" class="text-sm font-semibold text-cerulean-600 hover:text-cerulean-700">
-              Baca Profil Lengkap &rarr;
+            <a href="/profil" class="inline-flex items-center gap-1.5 text-sm font-semibold text-cerulean-600 hover:text-cerulean-700 transition group">
+              <span>Baca Profil Lengkap</span>
+              <span class="transition-transform duration-200 group-hover:translate-x-1">&rarr;</span>
             </a>
           </div>
         </div>
@@ -115,7 +116,7 @@ function formatDate(date: Date) {
   <!-- 4 Program Unggulan -->
   <div class="bg-slate-50 py-16 lg:py-24 border-b border-slate-200/70">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 reveal">
         <div>
           <div class="text-xs font-mono font-semibold uppercase tracking-widest text-cerulean-600">Pilar Pendidikan</div>
           <h2 class="text-2xl sm:text-3xl font-bold text-ocean-950 mt-1">Program Unggulan Sekolah</h2>
@@ -123,22 +124,22 @@ function formatDate(date: Date) {
         <p class="text-sm text-slate-600 max-w-md">Pembinaan terpadu antara kompetensi akademik, pembiasaan karakter religius, dan pengembangan minat bakat siswa.</p>
       </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="bg-white rounded-xl border border-slate-200 p-6 hover:border-cerulean-600/50 hover:shadow-md transition">
+        <div class="bg-white rounded-xl border border-slate-200 p-6 card-interactive reveal delay-75">
           <div class="w-11 h-11 rounded-lg bg-wijayaCyan-50 text-cerulean-600 flex items-center justify-center mb-4 font-bold">01</div>
           <h3 class="text-lg font-bold text-ocean-950 mb-2">Kurikulum Merdeka &amp; P5</h3>
           <p class="text-sm text-slate-600 leading-relaxed">Pembelajaran kontekstual berpusat pada siswa serta Proyek Penguatan Profil Pelajar Pancasila yang melatih kolaborasi.</p>
         </div>
-        <div class="bg-white rounded-xl border border-slate-200 p-6 hover:border-cerulean-600/50 hover:shadow-md transition">
+        <div class="bg-white rounded-xl border border-slate-200 p-6 card-interactive reveal delay-150">
           <div class="w-11 h-11 rounded-lg bg-wijayaCyan-50 text-cerulean-600 flex items-center justify-center mb-4 font-bold">02</div>
           <h3 class="text-lg font-bold text-ocean-950 mb-2">Drumband &amp; Seni Budaya</h3>
           <p class="text-sm text-slate-600 leading-relaxed">Unit Marching Band aktif berprestasi di tingkat Kabupaten Sidoarjo, melatih disiplin, kekompakan, dan percaya diri.</p>
         </div>
-        <div class="bg-white rounded-xl border border-slate-200 p-6 hover:border-cerulean-600/50 hover:shadow-md transition">
+        <div class="bg-white rounded-xl border border-slate-200 p-6 card-interactive reveal delay-200">
           <div class="w-11 h-11 rounded-lg bg-wijayaCyan-50 text-cerulean-600 flex items-center justify-center mb-4 font-bold">03</div>
           <h3 class="text-lg font-bold text-ocean-950 mb-2">Pembinaan Olahraga</h3>
           <p class="text-sm text-slate-600 leading-relaxed">Klub bola voli dan olahraga prestasi yang aktif menyelenggarakan turnamen antar-SD se-Kecamatan Sukodono.</p>
         </div>
-        <div class="bg-white rounded-xl border border-slate-200 p-6 hover:border-cerulean-600/50 hover:shadow-md transition">
+        <div class="bg-white rounded-xl border border-slate-200 p-6 card-interactive reveal delay-250">
           <div class="w-11 h-11 rounded-lg bg-wijayaCyan-50 text-cerulean-600 flex items-center justify-center mb-4 font-bold">04</div>
           <h3 class="text-lg font-bold text-ocean-950 mb-2">Karakter &amp; Kepemimpinan</h3>
           <p class="text-sm text-slate-600 leading-relaxed">Pembiasaan ibadah harian, literasi pagi, OSIS, Pramuka, dan Paskibra untuk membentuk pribadi tangguh dan santun.</p>
@@ -150,21 +151,22 @@ function formatDate(date: Date) {
   <!-- Pratinjau Fasilitas -->
   <div class="bg-white py-16 lg:py-24 border-b border-slate-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 reveal">
         <div>
           <div class="text-xs font-mono font-semibold uppercase tracking-widest text-cerulean-600">Sarana Prasarana</div>
           <h2 class="text-2xl sm:text-3xl font-bold text-ocean-950 mt-1">Fasilitas Pendukung Belajar</h2>
         </div>
-        <a href="/fasilitas" class="text-sm font-semibold text-cerulean-600 hover:text-cerulean-700">
-          Lihat Semua Fasilitas &rarr;
+        <a href="/fasilitas" class="inline-flex items-center gap-1.5 text-sm font-semibold text-cerulean-600 hover:text-cerulean-700 transition group">
+          <span>Lihat Semua Fasilitas</span>
+          <span class="transition-transform duration-200 group-hover:translate-x-1">&rarr;</span>
         </a>
       </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {featuredFacilities.map((item) => (
-          <div class="bg-white rounded-xl border border-slate-200 overflow-hidden hover:shadow-md hover:border-cerulean-600/40 transition flex flex-col">
-            <div class="aspect-[4/3] bg-gradient-to-br from-ocean-950 to-ocean-900 p-5 flex flex-col justify-between relative overflow-hidden">
+        {featuredFacilities.map((item, idx) => (
+          <div class={`bg-white rounded-xl border border-slate-200 overflow-hidden card-interactive transition flex flex-col reveal delay-${(idx % 3 + 1) * 75}`}>
+            <div class="aspect-[4/3] bg-gradient-to-br from-ocean-950 to-ocean-900 p-5 flex flex-col justify-between relative overflow-hidden group">
               {item.foto && (
-                <img src={item.foto} alt={item.nama} class="absolute inset-0 w-full h-full object-cover transition duration-300 hover:scale-105" onerror="this.style.display='none';" />
+                <img src={item.foto} alt={item.nama} class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-105" onerror="this.style.display='none';" />
                 <div class="absolute inset-0 bg-gradient-to-t from-ocean-950/90 via-ocean-950/30 to-ocean-950/40"></div>
               )}
               <span class="relative z-10 self-start px-2.5 py-1 rounded-full bg-white/20 backdrop-blur-sm text-sky-100 font-mono text-[11px] font-semibold">{item.kategori}</span>
@@ -173,7 +175,7 @@ function formatDate(date: Date) {
                 <button
                   type="button"
                   onclick={`openFacilityModal(${JSON.stringify(item)})`}
-                  class="px-3 py-1.5 rounded-lg bg-candiGold-400 hover:bg-yellow-300 text-ocean-950 text-xs font-bold transition shrink-0 shadow-md"
+                  class="px-3 py-1.5 rounded-lg bg-candiGold-400 hover:bg-yellow-300 text-ocean-950 text-xs font-bold transition-all duration-200 hover:scale-105 active:scale-95 shrink-0 shadow-md"
                 >
                   Lihat Foto
                 </button>
@@ -192,24 +194,25 @@ function formatDate(date: Date) {
   <!-- Berita Terbaru (3 Artikel) -->
   <div class="bg-slate-50 py-16 lg:py-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 reveal">
         <div>
           <div class="text-xs font-mono font-semibold uppercase tracking-widest text-cerulean-600">Kabar Sekolah</div>
           <h2 class="text-2xl sm:text-3xl font-bold text-ocean-950 mt-1">Berita &amp; Prestasi Terbaru</h2>
         </div>
-        <a href="/berita" class="text-sm font-semibold text-cerulean-600 hover:text-cerulean-700">
-          Lihat Semua Berita &rarr;
+        <a href="/berita" class="inline-flex items-center gap-1.5 text-sm font-semibold text-cerulean-600 hover:text-cerulean-700 transition group">
+          <span>Lihat Semua Berita</span>
+          <span class="transition-transform duration-200 group-hover:translate-x-1">&rarr;</span>
         </a>
       </div>
       <div class="grid md:grid-cols-3 gap-6">
-        {sortedBerita.map((item) => (
-          <a href={`/berita/${item.id}`} class="bg-white rounded-xl border border-slate-200 overflow-hidden hover:shadow-md transition flex flex-col group">
+        {sortedBerita.map((item, idx) => (
+          <a href={`/berita/${item.id}`} class={`bg-white rounded-xl border border-slate-200 overflow-hidden card-interactive transition flex flex-col group reveal delay-${(idx + 1) * 100}`}>
             <div class="aspect-video bg-gradient-to-br from-ocean-950 to-ocean-900 p-5 flex flex-col justify-between relative overflow-hidden">
               {item.data.thumbnail ? (
-                <img src={item.data.thumbnail} alt={item.data.title} class="absolute inset-0 w-full h-full object-cover transition duration-300 group-hover:scale-105" />
+                <img src={item.data.thumbnail} alt={item.data.title} class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-105" />
               ) : (
                 <div class="absolute inset-0 flex items-center justify-center opacity-30">
-                  <svg viewBox="0 0 200 200" class="w-16 h-16"><use href="#logo-smp-wijaya"></use></svg>
+                  <svg viewBox="0 0 200 200" class="w-16 h-16 transition-transform duration-500 group-hover:scale-110"><use href="#logo-smp-wijaya"></use></svg>
                 </div>
               )}
               <span class="relative z-10 self-start px-2.5 py-1 rounded-full bg-candiGold-400 text-ocean-950 font-mono text-[11px] font-bold shadow-sm">{item.data.kategori}</span>
@@ -222,8 +225,9 @@ function formatDate(date: Date) {
               <p class="text-xs sm:text-sm text-slate-600 mt-2 line-clamp-3 leading-relaxed">
                 {item.data.ringkasan}
               </p>
-              <div class="pt-4 text-xs font-semibold text-cerulean-600 mt-auto">
-                Baca Selengkapnya &rarr;
+              <div class="pt-4 text-xs font-semibold text-cerulean-600 mt-auto flex items-center gap-1">
+                <span>Baca Selengkapnya</span>
+                <span class="transition-transform duration-200 group-hover:translate-x-1">&rarr;</span>
               </div>
             </div>
           </a>
@@ -233,7 +237,7 @@ function formatDate(date: Date) {
   </div>
 
   <!-- CTA Strip SPMB -->
-  <div class="bg-ocean-950 text-white py-14 border-t-4 border-candiGold-400">
+  <div class="bg-ocean-950 text-white py-14 border-t-4 border-candiGold-400 reveal">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
       <div class="space-y-2 max-w-2xl">
         <div class="text-xs font-mono uppercase tracking-widest text-candiGold-400 font-semibold">SPMB Tahun Ajaran 2026/2027</div>
@@ -243,13 +247,13 @@ function formatDate(date: Date) {
       <div class="flex flex-wrap gap-3">
         <a
           href="/ppdb"
-          class="px-6 py-3.5 rounded-lg bg-candiGold-400 hover:bg-yellow-300 text-ocean-950 font-bold text-sm transition inline-block shadow-md"
+          class="px-6 py-3.5 rounded-lg bg-candiGold-400 hover:bg-yellow-300 text-ocean-950 font-bold text-sm transition transform hover:-translate-y-0.5 active:scale-[0.98] inline-block shadow-md"
         >
           Buka Info SPMB
         </a>
         <a
           href="/kontak"
-          class="px-6 py-3.5 rounded-lg border border-white/30 hover:bg-white/10 text-white font-semibold text-sm transition inline-block"
+          class="px-6 py-3.5 rounded-lg border border-white/30 hover:bg-white/10 text-white font-semibold text-sm transition transform hover:-translate-y-0.5 active:scale-[0.98] inline-block"
         >
           Hubungi Tata Usaha
         </a>
