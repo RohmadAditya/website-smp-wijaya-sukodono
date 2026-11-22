@@ -1,0 +1,262 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import spmb from '../content/data/spmb.json';
+import pengaturan from '../content/data/pengaturan.json';
+
+const waNumber = spmb.pendaftaran.kontak_wa || pengaturan.kontak?.whatsapp || '6281234567890';
+const waMessage = encodeURIComponent(
+  spmb.pendaftaran.pesan_wa || 'Halo Panitia SPMB SMP Wijaya Sukodono, saya ingin bertanya mengenai pendaftaran.'
+);
+const waUrl = `https://wa.me/${waNumber}?text=${waMessage}`;
+---
+
+<BaseLayout
+  title={`Informasi SPMB ${spmb.tahun_ajaran} — SMP Wijaya Sukodono`}
+  description={spmb.hero.deskripsi}
+  activeNav="spmb"
+>
+  <!-- Page Header -->
+  <div class="relative bg-ocean-950 text-white py-14 lg:py-20 overflow-hidden">
+    <!-- Background Image with Gradient Overlay -->
+    <img
+      src={spmb.hero.foto || '/images/hero/hero-ppdb.webp'}
+      alt={`Penerimaan Peserta Didik Baru SPMB SMP Wijaya Sukodono Tahun Ajaran ${spmb.tahun_ajaran}`}
+      class="absolute inset-0 w-full h-full object-cover object-center animate-hero-bg"
+      loading="eager"
+      fetchpriority="high"
+    />
+    <div class="absolute inset-0 bg-gradient-to-r from-ocean-950/95 via-ocean-950/90 to-ocean-900/80"></div>
+    <div class="absolute inset-0 bg-ocean-950/40"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-wrap items-center gap-3 mb-3 animate-hero-badge">
+        <span class="inline-flex items-center px-3 py-1 rounded-full bg-ocean-900/80 border border-wijayaCyan-400/30 text-xs font-mono text-wijayaCyan-300 uppercase tracking-wider">
+          Beranda / SPMB {spmb.tahun_ajaran}
+        </span>
+        <span
+          class={`px-3 py-1 rounded-full text-xs font-mono font-bold shadow-sm ${
+            spmb.aktif ? 'bg-candiGold-400 text-ocean-950' : 'bg-rose-500 text-white'
+          }`}
+        >
+          STATUS: {spmb.aktif ? 'DIBUKA' : 'DITUTUP'}
+        </span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight animate-hero-title">
+        {spmb.hero.judul}
+      </h1>
+      <p class="text-sky-100/90 mt-3 max-w-2xl text-base sm:text-lg leading-relaxed animate-hero-desc">
+        {spmb.hero.deskripsi}
+      </p>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 space-y-14">
+    <!-- Alert Saat Pendaftaran Ditutup -->
+    {!spmb.aktif && spmb.pesan_tutup && (
+      <div class="rounded-2xl border-2 border-amber-300 bg-amber-50/90 p-6 sm:p-7 text-ocean-950 shadow-sm reveal">
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 rounded-xl bg-amber-200 text-amber-900 flex items-center justify-center shrink-0">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+            </svg>
+          </div>
+          <div class="space-y-1.5 flex-1">
+            <h2 class="font-bold text-lg text-ocean-950">{spmb.pesan_tutup.judul || 'Pendaftaran SPMB Ditutup'}</h2>
+            <p class="text-sm text-slate-700 leading-relaxed">
+              {spmb.pesan_tutup.keterangan ||
+                'Pendaftaran saat ini sedang ditutup. Silakan hubungi kantor Tata Usaha kami untuk informasi gelombang pendaftaran selanjutnya.'}
+            </p>
+            <div class="pt-2">
+              <a
+                href={waUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-semibold transition shadow-sm"
+              >
+                <span>Tanya Informasi Kuota via WhatsApp TU</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    )}
+
+    <!-- 4 Stepper Cards: Alur Pendaftaran -->
+    <div class="reveal">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
+        <div>
+          <h2 class="text-xl sm:text-2xl font-bold text-ocean-950">Alur Pendaftaran Siswa Baru</h2>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1">Ikuti 4 langkah mudah berikut untuk mendaftar di SMP Wijaya Sukodono.</p>
+        </div>
+        {spmb.pendaftaran.brosur_pdf && (
+          <a
+            href={spmb.pendaftaran.brosur_pdf}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-cerulean-600 text-cerulean-700 hover:bg-cerulean-50 text-xs sm:text-sm font-semibold transition"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+            </svg>
+            <span>Unduh Brosur SPMB (PDF)</span>
+          </a>
+        )}
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        {spmb.alur.map((item, index) => (
+          <div class={`rounded-xl border border-slate-200 p-5 bg-white shadow-sm card-interactive reveal delay-${(index + 1) * 75}`}>
+            <div class="w-9 h-9 rounded-lg bg-ocean-950 text-candiGold-400 font-mono font-bold flex items-center justify-center mb-3">
+              {item.langkah}
+            </div>
+            <h3 class="font-bold text-ocean-950">{item.judul}</h3>
+            <p class="text-sm text-slate-600 mt-1 leading-relaxed">{item.deskripsi}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Syarat & Jadwal Grid -->
+    <div class="grid lg:grid-cols-2 gap-8 reveal">
+      <!-- Persyaratan Berkas -->
+      <div class="rounded-2xl border border-slate-200 p-7 bg-white shadow-sm flex flex-col justify-between">
+        <div>
+          <div class="flex items-center gap-2.5 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-wijayaCyan-50 text-cerulean-600 flex items-center justify-center">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-ocean-950">Persyaratan Berkas Pendaftaran</h3>
+          </div>
+          <ul class="space-y-3 text-sm text-slate-700">
+            {spmb.syarat_berkas.map((syarat) => (
+              <li class="flex items-start gap-2.5">
+                <span class="text-cerulean-600 font-bold mt-0.5">&check;</span>
+                <span class="leading-relaxed">{syarat}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {spmb.beasiswa_kip && (
+          <div class="mt-6 pt-5 border-t border-slate-100">
+            <div class="rounded-xl bg-slate-50 border border-slate-200/80 p-4">
+              <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-cerulean-700 mb-1">
+                <span class="w-2 h-2 rounded-full bg-cerulean-600"></span>
+                {spmb.beasiswa_kip.judul || 'Program Beasiswa & KIP'}
+              </div>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                {spmb.beasiswa_kip.keterangan}
+              </p>
+            </div>
+          </div>
+        )}
+      </div>
+
+      <!-- Jadwal & Layanan Pendaftaran -->
+      <div class="rounded-2xl border border-slate-200 p-7 bg-slate-50 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center gap-2.5 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-candiGold-100 text-candiGold-700 flex items-center justify-center">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-ocean-950">Jadwal &amp; Layanan Pendaftaran</h3>
+          </div>
+
+          <div class="space-y-3 text-sm">
+            {spmb.jadwal.map((item) => (
+              <div class="p-3.5 rounded-lg bg-white border border-slate-200 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1.5 shadow-xs">
+                <div class="flex items-center gap-2">
+                  {item.badge && (
+                    <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-mono font-semibold bg-wijayaCyan-50 text-cerulean-700 border border-cerulean-200">
+                      {item.badge}
+                    </span>
+                  )}
+                  <span class="font-semibold text-ocean-950">{item.gelombang}</span>
+                </div>
+                <span class="font-mono text-xs text-cerulean-700 font-semibold sm:text-right">
+                  {item.waktu}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="mt-7 pt-5 border-t border-slate-200">
+          <div class="flex flex-wrap items-center gap-3">
+            {spmb.aktif ? (
+              <a
+                href={spmb.pendaftaran.link_formulir || 'https://forms.google.com'}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="px-5 py-3 rounded-lg bg-cerulean-600 hover:bg-cerulean-700 text-white text-sm font-semibold transition shadow-sm inline-flex items-center gap-2"
+              >
+                <span>{spmb.pendaftaran.label_tombol || 'Isi Formulir Online (Google Forms)'}</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+              </a>
+            ) : (
+              <span class="px-5 py-3 rounded-lg bg-slate-200 text-slate-600 text-sm font-semibold inline-flex items-center gap-2 cursor-not-allowed">
+                <span>Pendaftaran Online Ditutup</span>
+              </span>
+            )}
+            <a
+              href={waUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="px-5 py-3 rounded-lg border border-slate-300 bg-white hover:bg-slate-50 text-ocean-950 text-sm font-semibold transition inline-flex items-center gap-2 shadow-xs"
+            >
+              <span>Tanya Panitia via WA</span>
+              <svg class="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ Accordion -->
+    <div class="max-w-3xl">
+      <div class="flex items-center gap-2.5 mb-2">
+        <span class="text-xs font-mono font-bold text-cerulean-700 uppercase tracking-widest">Pusat Bantuan</span>
+      </div>
+      <h2 class="text-xl sm:text-2xl font-bold text-ocean-950 mb-5">Pertanyaan yang Sering Diajukan (FAQ)</h2>
+      <div class="space-y-3" id="spmb-faq">
+        {spmb.faq.map((item) => (
+          <div class="rounded-xl border border-slate-200 bg-white overflow-hidden shadow-xs">
+            <button
+              type="button"
+              class="faq-btn w-full px-5 py-4 text-left font-semibold text-ocean-950 flex justify-between items-center text-sm sm:text-base hover:bg-slate-50 transition"
+            >
+              <span>{item.pertanyaan}</span>
+              <span class="faq-icon font-mono text-cerulean-600 font-bold text-lg leading-none shrink-0 ml-4">+</span>
+            </button>
+            <div class="faq-body hidden px-5 pb-4 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+              {item.jawaban}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <script is:inline>
+    const faqBtns = document.querySelectorAll('.faq-btn');
+    faqBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const body = btn.nextElementSibling;
+        const icon = btn.querySelector('.faq-icon');
+        const isHidden = body.classList.toggle('hidden');
+        if (icon) icon.textContent = isHidden ? '+' : '−';
+      });
+    });
+  </script>
+</BaseLayout>

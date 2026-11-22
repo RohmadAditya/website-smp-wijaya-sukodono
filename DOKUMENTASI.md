@@ -43,7 +43,7 @@ Pemilihan arsitektur Static Site berbasis Astro dan Cloudflare Pages yang dikomb
 | **4. Guru & Staf (`/guru`)** | Koleksi JSON | Ya | Blok khusus Pimpinan Sekolah (Kepala Sekolah & Wakasek), fitur pencarian & filter bidang, serta grid direktori guru mata pelajaran dan staf TU. |
 | **5. Berita (`/berita`)** | Koleksi Markdown | Ya | Artikel unggulan terbaru, pencarian judul, filter kategori (Kegiatan, Prestasi, Pengumuman, Akademik), dan daftar arsip berita. |
 | **6. Detail Berita (`/berita/[id]`)** | Pre-rendered Dinamis | Ya | Halaman bacaan artikel penuh, foto sampul 16:9, tombol bagikan langsung ke WhatsApp & salin tautan, serta berita terkait. |
-| **7. Info SPMB (`/ppdb`)** | File Tunggal (MD/YAML) | Ya | Status SPMB (Dibuka/Ditutup), 4 langkah alur pendaftaran, syarat berkas, jadwal gelombang, FAQ interaktif, serta tautan formulir Google Forms & WA panitia. |
+| **7. Info SPMB (`/spmb` & `/ppdb`)** | File Tunggal (JSON) | Ya | Status SPMB (Dibuka/Ditutup), tahun ajaran, pesan penutupan, 4 langkah alur pendaftaran, syarat berkas, jadwal gelombang, info beasiswa/KIP, unduh brosur PDF, FAQ interaktif, serta tautan formulir Google Forms & WA panitia. Rute `/ppdb` otomatis dialihkan ke `/spmb`. |
 | **8. Kontak (`/kontak`)** | Global Config (JSON) | Ya | Alamat lengkap Desa Pekarungan Sukodono, nomor telepon (031) 8830995, tombol WhatsApp TU, email resmi @smpwijayasukodono.sch.id, jam layanan, dan embed Google Maps. |
 
 **Di Luar Ruang Lingkup (Out of Scope):**  
@@ -108,11 +108,11 @@ website-smp-wijaya-sukodono/
     ├── content/
     │   ├── berita/               # Koleksi artikel berita (.md)
     │   └── data/
-    │       ├── pengaturan.json   # Identitas global, sambutan Kepsek, toggle SPMB
+    │       ├── pengaturan.json   # Identitas global & sambutan Kepsek
+    │       ├── spmb.json         # Pengaturan SPMB (status, alur, jadwal, syarat, FAQ, kontak)
     │       ├── profil.md         # Sejarah, Visi & Misi, Filosofi Logo
     │       ├── fasilitas.json    # Daftar sarana prasarana sekolah
-    │       ├── guru.json         # Direktori pimpinan, guru, dan staf TU
-    │       └── ppdb.md           # Alur, syarat, jadwal & FAQ SPMB
+    │       └── guru.json         # Direktori pimpinan, guru, dan staf TU
     ├── components/
     │   ├── Navbar.astro          # Navigasi utama + responsif drawer
     │   ├── TopBarSPMB.astro      # Banner pengumuman SPMB kondisional
@@ -125,7 +125,8 @@ website-smp-wijaya-sukodono/
         ├── profil.astro          # Tentang Kami & Filosofi Logo
         ├── fasilitas.astro       # Katalog Sarana Prasarana
         ├── guru.astro            # Direktori Guru & Tenaga Kependidikan
-        ├── ppdb.astro            # Informasi SPMB 2026/2027
+        ├── spmb.astro            # Informasi SPMB Resmi
+        ├── ppdb.astro            # Rute Pengalihan / Redirect ke /spmb
         ├── kontak.astro          # Kontak Resmi & Embed Maps
         └── berita/
             ├── index.astro       # Arsip & Pencarian Berita
@@ -185,7 +186,16 @@ website-smp-wijaya-sukodono/
 4. Klik **Save**. Website akan otomatis diperbarui dalam waktu 1–2 menit.
 
 ### 4.3 Cara Mengatur SPMB, Fasilitas, & Data Guru
-- **Menyalakan/Mematikan Banner SPMB**: Buka **Pengaturan Sekolah & Beranda** -> centang/uncentang opsi **Tampilkan Banner SPMB di Beranda?** -> perbarui link Google Forms jika ada perubahan -> klik **Save**.
+- **Pengaturan Lengkap SPMB (Buka/Tutup, Jadwal, & Syarat)**:
+  1. Buka menu **Pengaturan SPMB (Penerimaan Siswa Baru)** di dashboard Pages CMS.
+  2. **Buka/Tutup Pendaftaran**: Centang kotak **Status SPMB Dibuka?** untuk membuka pendaftaran, atau hapus centang untuk menutup. Jika ditutup, tombol formulir otomatis digantikan tombol WhatsApp TU dan muncul kotak pemberitahuan penutupan.
+  3. **Tahun Ajaran & Banner**: Sesuaikan tahun ajaran (misal `2026/2027` atau `2027/2028`) dan teks banner notifikasi berjalan di bagian atas website.
+  4. **Jadwal Gelombang**: Edit atau tambah gelombang pendaftaran (Gelombang I Inden, Gelombang II Reguler, jam operasional TU).
+  5. **Syarat Berkas**: Tambah atau edit butir persyaratan dokumen yang harus dibawa calon siswa.
+  6. **Alur 4 Langkah**: Perbarui penjelasan tata cara pendaftaran jika ada penyesuaian alur.
+  7. **Tautan Formulir, Brosur & Kontak**: Perbarui tautan Google Forms pendaftaran, unggah file brosur PDF jika ada, dan masukkan nomor WhatsApp panitia penerimaan siswa baru.
+  8. **FAQ**: Tambah atau edit tanya-jawab seputar SPMB untuk membantu orang tua murid.
+  9. Klik **Save**. Perubahan akan otomatis tayang di `/spmb` dalam 1–2 menit.
 - **Memperbarui Data Guru / Fasilitas**: Buka menu **Direktori Guru & Staf** atau **Fasilitas Sekolah**, tambah baris baru dengan klik tanda `+` atau edit data yang ada -> klik **Save**.
 - **Mengunggah Banyak Foto Fasilitas**: Pada menu **Fasilitas Sekolah**, setiap fasilitas memiliki kolom **Foto Sampul Utama** serta kolom **Foto Tambahan / Galeri**. Klik tombol `+` pada kolom galeri untuk menambahkan foto ke-2, ke-3, dst. Pengunjung dapat melihat seluruh foto tersebut lewat slider & thumbnail di modal fasilitas.
 

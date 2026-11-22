@@ -1,0 +1,88 @@
+{
+  "aktif": true,
+  "tahun_ajaran": "2026/2027",
+  "banner": {
+    "label": "SPMB 2026/2027",
+    "teks": "Penerimaan Murid Baru SMP Wijaya Sukodono telah dibuka — Kuota terbatas."
+  },
+  "hero": {
+    "judul": "Sistem Penerimaan Murid Baru (SPMB) 2026/2027",
+    "deskripsi": "Panduan lengkap alur pendaftaran, kelengkapan berkas, jadwal gelombang, dan informasi layanan pendaftaran calon siswa baru SMP Wijaya Sukodono.",
+    "foto": "/images/hero/hero-ppdb.webp"
+  },
+  "pesan_tutup": {
+    "judul": "Pendaftaran SPMB Gelombang Saat Ini Telah Ditutup",
+    "keterangan": "Terima kasih atas antusiasme dan kepercayaan calon wali murid. Untuk informasi pembukaan gelombang berikutnya atau ketersediaan kuota susulan, silakan hubungi langsung kantor Tata Usaha kami."
+  },
+  "pendaftaran": {
+    "link_formulir": "https://forms.google.com",
+    "label_tombol": "Isi Formulir Online (Google Forms)",
+    "brosur_pdf": "",
+    "kontak_wa": "6281234567890",
+    "pesan_wa": "Halo Panitia SPMB SMP Wijaya Sukodono, saya ingin bertanya mengenai pendaftaran siswa baru."
+  },
+  "alur": [
+    {
+      "langkah": "01",
+      "judul": "Isi Formulir",
+      "deskripsi": "Mengisi formulir pendaftaran online melalui Google Forms sekolah atau datang langsung ke kantor TU."
+    },
+    {
+      "langkah": "02",
+      "judul": "Siapkan Berkas",
+      "deskripsi": "Melengkapi fotokopi Kartu Keluarga, Akta Kelahiran, Surat Keterangan Lulus/Ijazah SD/MI, dan pas foto."
+    },
+    {
+      "langkah": "03",
+      "judul": "Verifikasi Panitia",
+      "deskripsi": "Verifikasi dokumen oleh panitia SPMB di kantor SMP Wijaya Sukodono pada jam kerja sekolah."
+    },
+    {
+      "langkah": "04",
+      "judul": "Daftar Ulang & MPLS",
+      "deskripsi": "Konfirmasi daftar ulang dan mengikuti Masa Pengenalan Lingkungan Sekolah (MPLS) Tahun Ajaran baru."
+    }
+  ],
+  "syarat_berkas": [
+    "Lulusan SD / MI atau sederajat (dibuktikan dengan SKL / Ijazah).",
+    "Fotokopi Kartu Keluarga (KK) sebanyak 2 lembar.",
+    "Fotokopi Akta Kelahiran sebanyak 2 lembar.",
+    "Fotokopi NISN (Nomor Induk Siswa Nasional) & KIP/PKH (jika memiliki).",
+    "Pas foto berwarna ukuran 3×4 sebanyak 4 lembar."
+  ],
+  "jadwal": [
+    {
+      "gelombang": "Gelombang I (Inden)",
+      "waktu": "Februari – April 2026",
+      "badge": "Inden"
+    },
+    {
+      "gelombang": "Gelombang II (Reguler)",
+      "waktu": "Mei – Juli 2026",
+      "badge": "Reguler"
+    },
+    {
+      "gelombang": "Jam Layanan Tatap Muka",
+      "waktu": "Senin–Sabtu, 07.30–13.00 WIB",
+      "badge": "Offline"
+    }
+  ],
+  "beasiswa_kip": {
+    "judul": "Program Keringanan Biaya, KIP, & Jalur Afirmasi",
+    "keterangan": "SMP Wijaya Sukodono membuka kesempatan seluas-luasnya bagi seluruh anak untuk mengenyam pendidikan berkualitas. Kami menerima siswa pemegang KIP (Kartu Indonesia Pintar) dan PKH, serta memberikan beasiswa keringanan bagi calon peserta didik yang memiliki prestasi di bidang akademik, olahraga, maupun seni budaya."
+  },
+  "faq": [
+    {
+      "pertanyaan": "Apakah pendaftaran dapat dilakukan langsung ke sekolah?",
+      "jawaban": "Ya. Orang tua atau wali murid dapat datang langsung ke ruang Tata Usaha SMP Wijaya Sukodono di Desa Pekarungan pada jam kerja Senin–Sabtu pukul 07.30–13.00 WIB."
+    },
+    {
+      "pertanyaan": "Apakah tersedia program ekstrakurikuler unggulan bagi siswa baru?",
+      "jawaban": "Tersedia beragam ekstrakurikuler seperti Marching Band / Drumband, Bola Voli, Pramuka, Paskibra, Seni Tari, serta pembinaan keagamaan yang dapat dipilih siswa sejak kelas VII."
+    },
+    {
+      "pertanyaan": "Apakah calon siswa pemegang KIP / PIP dapat mendaftar?",
+      "jawaban": "Bisa. Silakan melampirkan fotokopi kartu KIP/PKH saat verifikasi berkas agar dapat didata dalam program bantuan pendidikan sesuai ketentuan yang berlaku."
+    }
+  ]
+}

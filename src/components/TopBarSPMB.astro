@@ -1,15 +1,19 @@
 ---
-import pengaturan from '../content/data/pengaturan.json';
+import spmb from '../content/data/spmb.json';
 ---
 
-{pengaturan.ppdb_aktif && (
+{spmb.aktif && (
   <div id="top-spmb-bar" class="bg-ocean-950 text-white border-b border-cerulean-600/30">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex flex-wrap items-center justify-between gap-2 text-xs sm:text-sm">
       <div class="flex items-center gap-2.5">
-        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-mono font-semibold bg-candiGold-400 text-ocean-950 uppercase tracking-wide">SPMB 2026/2027</span>
-        <span class="text-sky-100">Penerimaan Murid Baru SMP Wijaya Sukodono telah dibuka — Kuota terbatas.</span>
+        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-mono font-semibold bg-candiGold-400 text-ocean-950 uppercase tracking-wide">
+          {spmb.banner?.label || `SPMB ${spmb.tahun_ajaran}`}
+        </span>
+        <span class="text-sky-100">
+          {spmb.banner?.teks || 'Penerimaan Murid Baru SMP Wijaya Sukodono telah dibuka — Kuota terbatas.'}
+        </span>
       </div>
-      <a href="/ppdb" class="font-semibold text-candiGold-400 hover:text-yellow-300 underline underline-offset-4 transition">
+      <a href="/spmb" class="font-semibold text-candiGold-400 hover:text-yellow-300 underline underline-offset-4 transition">
         Lihat Syarat &amp; Alur &rarr;
       </a>
     </div>

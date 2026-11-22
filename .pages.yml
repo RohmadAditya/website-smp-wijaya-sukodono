@@ -22,6 +22,76 @@ content:
       - { name: ringkasan, label: Ringkasan Singkat (1-2 kalimat), type: text, required: true }
       - { name: draft, label: Simpan sebagai Draft, type: boolean, default: false }
       - { name: body, label: Isi Berita, type: rich-text }
+
+  - name: spmb
+    label: Pengaturan SPMB (Penerimaan Siswa Baru)
+    type: file
+    path: src/content/data/spmb.json
+    fields:
+      - { name: aktif, label: Status SPMB Dibuka? (Centang untuk Membuka, Hapus Centang untuk Menutup), type: boolean, default: true }
+      - { name: tahun_ajaran, label: Tahun Ajaran (contoh: 2026/2027), type: string, required: true }
+      - name: banner
+        label: Notifikasi Banner TopBar (Muncul jika SPMB Dibuka)
+        type: object
+        fields:
+          - { name: label, label: Label Badge Banner, type: string }
+          - { name: teks, label: Teks Pengumuman Banner, type: string }
+      - name: hero
+        label: Bagian Header / Hero SPMB
+        type: object
+        fields:
+          - { name: judul, label: Judul Halaman SPMB, type: string, required: true }
+          - { name: deskripsi, label: Deskripsi Singkat, type: text, required: true }
+          - { name: foto, label: Foto Latar Belakang Hero (16:9), type: image }
+      - name: pesan_tutup
+        label: Pesan Saat Pendaftaran Ditutup (Aktif = Mati)
+        type: object
+        fields:
+          - { name: judul, label: Judul Pemberitahuan Penutupan, type: string }
+          - { name: keterangan, label: Isi Pesan / Instruksi ke Calon Siswa, type: text }
+      - name: pendaftaran
+        label: Tautan Formulir & Kontak Layanan
+        type: object
+        fields:
+          - { name: link_formulir, label: Tautan Google Forms / Portal Online, type: string }
+          - { name: label_tombol, label: Teks Tombol Formulir, type: string }
+          - { name: brosur_pdf, label: File Brosur / Panduan SPMB (PDF / Gambar), type: file }
+          - { name: kontak_wa, label: Nomor WhatsApp Panitia (contoh: 6281234567890), type: string }
+          - { name: pesan_wa, label: Pesan WhatsApp Otomatis (Saat Tombol Diklik), type: string }
+      - name: jadwal
+        label: Jadwal Gelombang & Jam Layanan
+        type: object
+        list: true
+        fields:
+          - { name: gelombang, label: Nama Gelombang / Jam Layanan, type: string, required: true }
+          - { name: waktu, label: Rentang Tanggal / Waktu, type: string, required: true }
+          - { name: badge, label: Label Kategori (contoh: Inden, Reguler, Offline), type: string }
+      - name: alur
+        label: Alur Pendaftaran (Langkah 01 - 04)
+        type: object
+        list: true
+        fields:
+          - { name: langkah, label: Nomor Langkah (01, 02, dst), type: string, required: true }
+          - { name: judul, label: Judul Langkah, type: string, required: true }
+          - { name: deskripsi, label: Penjelasan Langkah, type: text, required: true }
+      - name: syarat_berkas
+        label: Persyaratan Berkas Pendaftaran
+        type: string
+        list: true
+      - name: beasiswa_kip
+        label: Informasi Beasiswa & KIP
+        type: object
+        fields:
+          - { name: judul, label: Judul Informasi Beasiswa, type: string }
+          - { name: keterangan, label: Penjelasan Keringanan Biaya & Afirmasi, type: text }
+      - name: faq
+        label: FAQ (Pertanyaan yang Sering Diajukan)
+        type: object
+        list: true
+        fields:
+          - { name: pertanyaan, label: Pertanyaan, type: string, required: true }
+          - { name: jawaban, label: Jawaban Lengkap, type: text, required: true }
+
   - name: pengaturan
     label: Pengaturan Sekolah & Beranda
     type: file
@@ -37,8 +107,6 @@ content:
           - { name: nama, label: Nama Kepala Sekolah, type: string }
           - { name: foto, label: Foto Kepala Sekolah, type: image }
           - { name: pesan, label: Isi Sambutan Singkat, type: text }
-      - { name: ppdb_aktif, label: Tampilkan Banner SPMB di Beranda?, type: boolean, default: false }
-      - { name: ppdb_link, label: Link Formulir SPMB (Google Forms), type: string }
       - name: kontak
         label: Informasi Kontak Resmi
         type: object
@@ -48,6 +116,7 @@ content:
           - { name: whatsapp, label: Nomor WA TU (62812xxx), type: string }
           - { name: email, label: Email Resmi Sekolah, type: string }
           - { name: instagram, label: Link Instagram Sekolah, type: string }
+
   - name: fasilitas
     label: Fasilitas Sekolah
     type: file
@@ -70,6 +139,7 @@ content:
             label: Foto Tambahan / Galeri (Bisa lebih dari 1 foto)
             type: image
             list: true
+
   - name: guru
     label: Direktori Guru & Staf
     type: file
@@ -88,6 +158,7 @@ content:
             options: { values: [Pimpinan, Guru Mapel, Staf TU] }
           - { name: inisial, label: Inisial Avatar (2 Huruf), type: string }
           - { name: foto, label: Foto Profil, type: image }
+
   - name: profil
     label: Halaman Profil Sekolah
     type: file
@@ -97,11 +168,3 @@ content:
       - { name: visi, label: Visi Sekolah, type: text }
       - { name: misi, label: Daftar Misi, type: string, list: true }
       - { name: body, label: Sejarah & Profil Lengkap, type: rich-text }
-  - name: ppdb
-    label: Halaman Informasi SPMB
-    type: file
-    path: src/content/data/ppdb.md
-    fields:
-      - { name: title, label: Judul Halaman SPMB, type: string }
-      - { name: tahun_ajaran, label: Tahun Ajaran, type: string }
-      - { name: body, label: Syarat, Jadwal & Alur Pendaftaran, type: rich-text }
