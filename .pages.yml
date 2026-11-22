@@ -191,4 +191,8 @@ content:
           - { name: lokasi, label: "Tempat Latihan", type: string }
           - { name: pembina, label: "Pembina / Pelatih", type: string }
           - { name: badge, label: "Label Khusus (contoh: Unggulan, Wajib Kelas VII)", type: string }
-          - { name: foto, label: "Foto Dokumentasi (Maks 1 MB)", type: image }
+          - { name: foto, label: "Foto Sampul Kegiatan Utama (4:3 atau 16:9, maks 1 MB)", type: image }
+          - name: galeri
+            label: "Galeri Foto Kegiatan Tambahan (Bisa upload lebih dari 1 gambar)"
+            type: image
+            list: true

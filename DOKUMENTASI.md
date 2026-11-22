@@ -201,7 +201,10 @@ website-smp-wijaya-sukodono/
   8. **FAQ**: Tambah atau edit tanya-jawab seputar SPMB untuk membantu orang tua murid.
   9. Klik **Save**. Perubahan akan otomatis tayang di `/spmb` dalam 1–2 menit.
 - **Memperbarui Data Guru / Fasilitas**: Buka menu **Direktori Guru & Staf** atau **Fasilitas Sekolah**, tambah baris baru dengan klik tanda `+` atau edit data yang ada -> klik **Save**.
-- **Mengunggah Banyak Foto Fasilitas**: Pada menu **Fasilitas Sekolah**, setiap fasilitas memiliki kolom **Foto Sampul Utama** serta kolom **Foto Tambahan / Galeri**. Klik tombol `+` pada kolom galeri untuk menambahkan foto ke-2, ke-3, dst. Pengunjung dapat melihat seluruh foto tersebut lewat slider & thumbnail di modal fasilitas.
+- **Mengunggah Banyak Foto Fasilitas & Ekstrakurikuler**: 
+  - Pada menu **Fasilitas Sekolah** dan **Ekstrakurikuler**, setiap item memiliki kolom **Foto Sampul Utama** serta kolom **Galeri Foto Tambahan (List)**.
+  - Klik tombol `+` pada kolom galeri untuk menambahkan foto ke-2, ke-3, dst.
+  - Di website publik, seluruh foto kegiatan akan otomatis ditampilkan dalam slider galeri modal interaktif dengan navigasi panah, penghitung foto (misal: *Foto 1 dari 3*), dan barisan thumbnail di bawah foto.
 
 ### 4.4 Panduan Kompresi Gambar Sebelum Upload (Agar Website Cepat & Ringan)
 Karena website menggunakan arsitektur GitOps di mana setiap file disimpan langsung di repositori, foto yang diunggah sebaiknya tidak melebihi **300 KB – 500 KB** per file (jangan mengunggah file foto kamera mentah berukuran 3 MB – 10 MB).

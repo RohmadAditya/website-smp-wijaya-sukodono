@@ -1,0 +1,246 @@
+---
+---
+
+<div id="ekskul-modal" class="hidden fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-4 opacity-0 transition-opacity duration-200">
+  <div class="bg-white rounded-2xl max-w-3xl w-full overflow-hidden shadow-2xl relative transform scale-95 opacity-0 transition-all duration-200 ease-out max-h-[92vh] flex flex-col" id="ekskul-modal-container">
+    
+    <!-- Visual Image Section -->
+    <div id="ekskul-modal-visual" class="aspect-[16/10] sm:aspect-[16/9] bg-gradient-to-br from-ocean-950 to-ocean-900 flex flex-col items-center justify-center p-6 text-center text-white relative overflow-hidden group shrink-0">
+      <img id="ekskul-modal-img" src="" alt="" class="hidden absolute inset-0 w-full h-full object-cover transition-opacity duration-200" />
+      <div id="ekskul-modal-overlay" class="hidden absolute inset-0 bg-gradient-to-t from-ocean-950/95 via-ocean-950/20 to-black/30"></div>
+      
+      <!-- Prev / Next navigation buttons -->
+      <button
+        id="ekskul-modal-prev-btn"
+        type="button"
+        class="hidden absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-ocean-950/80 hover:bg-ocean-950 text-white flex items-center justify-center backdrop-blur-sm transition shadow-lg border border-white/20 active:scale-95"
+        aria-label="Foto Sebelumnya"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/></svg>
+      </button>
+      <button
+        id="ekskul-modal-next-btn"
+        type="button"
+        class="hidden absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-ocean-950/80 hover:bg-ocean-950 text-white flex items-center justify-center backdrop-blur-sm transition shadow-lg border border-white/20 active:scale-95"
+        aria-label="Foto Berikutnya"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+      </button>
+
+      <!-- Badges & Counter Overlay -->
+      <div class="absolute top-4 left-4 z-20 flex flex-wrap items-center gap-2">
+        <span id="ekskul-modal-category" class="px-3 py-1 rounded-full bg-candiGold-400 text-ocean-950 font-mono text-xs font-bold shadow-md"></span>
+        <span id="ekskul-modal-badge" class="hidden px-2.5 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white font-mono text-xs font-bold border border-white/30"></span>
+      </div>
+
+      <div class="absolute top-4 right-4 z-20">
+        <span id="ekskul-modal-counter" class="hidden px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-white font-mono text-xs font-semibold border border-white/20"></span>
+      </div>
+
+      <div id="ekskul-modal-title-overlay" class="absolute bottom-4 left-4 right-4 z-20 text-left text-xl sm:text-2xl font-extrabold text-white drop-shadow-md"></div>
+    </div>
+
+    <!-- Thumbnails Strip (Shown when multi-photo) -->
+    <div id="ekskul-modal-thumbs" class="hidden px-4 py-2.5 flex items-center gap-2 overflow-x-auto border-b border-slate-200 bg-slate-100 shrink-0"></div>
+
+    <!-- Modal Content Details (Scrollable if height exceeds) -->
+    <div class="p-6 overflow-y-auto space-y-4">
+      <div>
+        <h3 id="ekskul-modal-title" class="text-xl font-bold text-ocean-950"></h3>
+        <p id="ekskul-modal-desc" class="text-sm text-slate-600 mt-2 leading-relaxed"></p>
+      </div>
+
+      <!-- Prestasi Highlight Box -->
+      <div id="ekskul-modal-prestasi-box" class="hidden p-3.5 rounded-xl bg-amber-50 border border-amber-200 text-xs sm:text-sm text-amber-950 flex items-start gap-2.5">
+        <svg class="w-5 h-5 text-amber-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.504-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.004-6.75V3.75a1.5 1.5 0 00-1.5-1.5h-3a1.5 1.5 0 00-1.5 1.5v4.5m9 3a4.5 4.5 0 01-9 0m9 0a4.5 4.5 0 01-9 0m9 0c0 1.657-1.343 3-3 3h-3c-1.657 0-3-1.343-3-3" />
+        </svg>
+        <div>
+          <span class="font-bold text-amber-900 block mb-0.5">Prestasi &amp; Catatan Unggulan:</span>
+          <span id="ekskul-modal-prestasi"></span>
+        </div>
+      </div>
+
+      <!-- Metadata Grid: Jadwal, Lokasi, Pembina -->
+      <div class="grid sm:grid-cols-3 gap-3 pt-2 text-xs">
+        <div class="p-3 rounded-lg bg-slate-50 border border-slate-200">
+          <span class="font-mono text-slate-400 uppercase tracking-wider block mb-1">Jadwal Latihan</span>
+          <span id="ekskul-modal-jadwal" class="font-semibold text-ocean-950 block"></span>
+        </div>
+        <div class="p-3 rounded-lg bg-slate-50 border border-slate-200">
+          <span class="font-mono text-slate-400 uppercase tracking-wider block mb-1">Tempat / Lokasi</span>
+          <span id="ekskul-modal-lokasi" class="font-semibold text-ocean-950 block"></span>
+        </div>
+        <div class="p-3 rounded-lg bg-slate-50 border border-slate-200">
+          <span class="font-mono text-slate-400 uppercase tracking-wider block mb-1">Pembina / Pelatih</span>
+          <span id="ekskul-modal-pembina" class="font-semibold text-ocean-950 block"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Footer Actions -->
+    <div class="p-4 sm:px-6 bg-slate-50 border-t border-slate-200 flex items-center justify-between gap-3 shrink-0">
+      <a
+        href="/spmb"
+        class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-cerulean-600 hover:text-cerulean-700 transition"
+      >
+        <span>Tertarik bergabung? Info SPMB &rarr;</span>
+      </a>
+      <button
+        id="close-ekskul-modal-btn"
+        type="button"
+        class="px-5 py-2 rounded-lg bg-ocean-950 text-white text-sm font-semibold hover:bg-ocean-900 transition active:scale-95 shadow-sm"
+      >
+        Tutup
+      </button>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  const ekskulModal = document.getElementById('ekskul-modal');
+  const closeEkskulBtn = document.getElementById('close-ekskul-modal-btn');
+  const ekskulContainer = document.getElementById('ekskul-modal-container');
+  const ekskulPrevBtn = document.getElementById('ekskul-modal-prev-btn');
+  const ekskulNextBtn = document.getElementById('ekskul-modal-next-btn');
+  const ekskulCounter = document.getElementById('ekskul-modal-counter');
+  const ekskulThumbs = document.getElementById('ekskul-modal-thumbs');
+  const ekskulModalImg = document.getElementById('ekskul-modal-img');
+  const ekskulModalOverlay = document.getElementById('ekskul-modal-overlay');
+
+  let currentEkskulPhotos = [];
+  let currentEkskulPhotoIndex = 0;
+
+  function updateEkskulModalPhoto(index) {
+    if (!currentEkskulPhotos.length) return;
+    currentEkskulPhotoIndex = (index + currentEkskulPhotos.length) % currentEkskulPhotos.length;
+    
+    ekskulModalImg.src = currentEkskulPhotos[currentEkskulPhotoIndex];
+    ekskulModalImg.classList.remove('hidden');
+    if (ekskulModalOverlay) ekskulModalOverlay.classList.remove('hidden');
+
+    if (currentEkskulPhotos.length > 1) {
+      if (ekskulCounter) {
+        ekskulCounter.textContent = `Foto ${currentEkskulPhotoIndex + 1} dari ${currentEkskulPhotos.length}`;
+        ekskulCounter.classList.remove('hidden');
+      }
+      if (ekskulThumbs) {
+        ekskulThumbs.querySelectorAll('button').forEach((btn, i) => {
+          if (i === currentEkskulPhotoIndex) {
+            btn.classList.add('ring-2', 'ring-cerulean-600', 'opacity-100');
+            btn.classList.remove('opacity-60');
+          } else {
+            btn.classList.remove('ring-2', 'ring-cerulean-600', 'opacity-100');
+            btn.classList.add('opacity-60');
+          }
+        });
+      }
+    }
+  }
+
+  window.openEkskulModal = function(item, initialIndex = 0) {
+    if (!ekskulModal) return;
+
+    document.getElementById('ekskul-modal-category').textContent = item.kategori || '';
+    document.getElementById('ekskul-modal-title-overlay').textContent = item.nama || '';
+    document.getElementById('ekskul-modal-title').textContent = item.nama || '';
+    document.getElementById('ekskul-modal-desc').textContent = item.deskripsi || '';
+    document.getElementById('ekskul-modal-jadwal').textContent = item.jadwal || '-';
+    document.getElementById('ekskul-modal-lokasi').textContent = item.lokasi || '-';
+    document.getElementById('ekskul-modal-pembina').textContent = item.pembina || '-';
+
+    const badgeElem = document.getElementById('ekskul-modal-badge');
+    if (item.badge) {
+      badgeElem.textContent = item.badge;
+      badgeElem.classList.remove('hidden');
+    } else {
+      badgeElem.classList.add('hidden');
+    }
+
+    const prestasiBox = document.getElementById('ekskul-modal-prestasi-box');
+    const prestasiElem = document.getElementById('ekskul-modal-prestasi');
+    if (item.prestasi) {
+      prestasiElem.textContent = item.prestasi;
+      prestasiBox.classList.remove('hidden');
+    } else {
+      prestasiBox.classList.add('hidden');
+    }
+
+    // Collect photos: main photo + gallery photos
+    const gallery = Array.isArray(item.galeri) ? item.galeri : [];
+    currentEkskulPhotos = [item.foto, ...gallery].filter(Boolean);
+    currentEkskulPhotoIndex = initialIndex;
+
+    if (currentEkskulPhotos.length > 0) {
+      ekskulModalImg.alt = item.nama || 'Foto Kegiatan Ekstrakurikuler';
+      updateEkskulModalPhoto(initialIndex);
+
+      if (currentEkskulPhotos.length > 1) {
+        ekskulPrevBtn?.classList.remove('hidden');
+        ekskulNextBtn?.classList.remove('hidden');
+        if (ekskulThumbs) {
+          ekskulThumbs.innerHTML = currentEkskulPhotos.map((src, i) => `
+            <button
+              type="button"
+              onclick="window._setEkskulModalPhoto(${i})"
+              class="w-16 h-11 rounded-lg overflow-hidden border border-slate-300 shrink-0 transition ${i === initialIndex ? 'ring-2 ring-cerulean-600 opacity-100' : 'opacity-60 hover:opacity-100'}"
+              aria-label="Pilih foto ${i + 1}"
+            >
+              <img src="${src}" alt="" class="w-full h-full object-cover" />
+            </button>
+          `).join('');
+          ekskulThumbs.classList.remove('hidden');
+        }
+      } else {
+        ekskulPrevBtn?.classList.add('hidden');
+        ekskulNextBtn?.classList.add('hidden');
+        ekskulCounter?.classList.add('hidden');
+        ekskulThumbs?.classList.add('hidden');
+      }
+    } else {
+      ekskulModalImg.src = '';
+      ekskulModalImg.classList.add('hidden');
+      ekskulModalOverlay?.classList.add('hidden');
+      ekskulPrevBtn?.classList.add('hidden');
+      ekskulNextBtn?.classList.add('hidden');
+      ekskulCounter?.classList.add('hidden');
+      ekskulThumbs?.classList.add('hidden');
+    }
+
+    ekskulModal.classList.remove('hidden');
+    requestAnimationFrame(() => {
+      ekskulModal.classList.remove('opacity-0');
+      ekskulContainer?.classList.remove('scale-95', 'opacity-0');
+    });
+  };
+
+  window._setEkskulModalPhoto = function(idx) {
+    updateEkskulModalPhoto(idx);
+  };
+
+  ekskulPrevBtn?.addEventListener('click', () => updateEkskulModalPhoto(currentEkskulPhotoIndex - 1));
+  ekskulNextBtn?.addEventListener('click', () => updateEkskulModalPhoto(currentEkskulPhotoIndex + 1));
+
+  function closeEkskulModal() {
+    if (!ekskulModal) return;
+    ekskulModal.classList.add('opacity-0');
+    ekskulContainer?.classList.add('scale-95', 'opacity-0');
+    setTimeout(() => {
+      ekskulModal.classList.add('hidden');
+    }, 200);
+  }
+
+  if (closeEkskulBtn) closeEkskulBtn.addEventListener('click', closeEkskulModal);
+  if (ekskulModal) {
+    ekskulModal.addEventListener('click', (e) => {
+      if (!ekskulContainer.contains(e.target)) closeEkskulModal();
+    });
+  }
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeEkskulModal();
+    if (!ekskulModal.classList.contains('hidden') && currentEkskulPhotos.length > 1) {
+      if (e.key === 'ArrowLeft') updateEkskulModalPhoto(currentEkskulPhotoIndex - 1);
+      if (e.key === 'ArrowRight') updateEkskulModalPhoto(currentEkskulPhotoIndex + 1);
+    }
+  });
+</script>
