@@ -5,42 +5,37 @@
       "nama": "Ruang Kelas Nyaman & Terang",
       "kategori": "Akademik",
       "deskripsi": "Ruang kelas kondusif dilengkapi ventilasi udara baik, papan tulis, dan fasilitas pendukung pembelajaran interaktif.",
-      "foto": ""
+      "foto": "/images/uploads/logo-ra.png"
     },
     {
       "id": 2,
       "nama": "Laboratorium Komputer & TIK",
       "kategori": "Laboratorium",
-      "deskripsi": "Sarana praktik literasi digital, simulasi ANBK, dan pembelajaran informatika bagi seluruh siswa.",
-      "foto": ""
+      "deskripsi": "Sarana praktik literasi digital, simulasi ANBK, dan pembelajaran informatika bagi seluruh siswa."
     },
     {
       "id": 3,
       "nama": "Perpustakaan Sekolah",
       "kategori": "Akademik",
-      "deskripsi": "Koleksi buku pelajaran, referensi bacaan fiksi-nonfiksi, serta sudut literasi pagi siswa SMP Wijaya.",
-      "foto": ""
+      "deskripsi": "Koleksi buku pelajaran, referensi bacaan fiksi-nonfiksi, serta sudut literasi pagi siswa SMP Wijaya."
     },
     {
       "id": 4,
       "nama": "Laboratorium IPA Terpadu",
       "kategori": "Laboratorium",
-      "deskripsi": "Mendukung eksperimen fisika, biologi, dan kimia dasar untuk memperdalam pemahaman sains siswa.",
-      "foto": ""
+      "deskripsi": "Mendukung eksperimen fisika, biologi, dan kimia dasar untuk memperdalam pemahaman sains siswa."
     },
     {
       "id": 5,
       "nama": "Lapangan Olahraga & Voli",
       "kategori": "Olahraga & Ibadah",
-      "deskripsi": "Arena latihan rutin ekstrakurikuler bola voli, upacara bendera, serta turnamen pelajar tingkat Kecamatan Sukodono.",
-      "foto": ""
+      "deskripsi": "Arena latihan rutin ekstrakurikuler bola voli, upacara bendera, serta turnamen pelajar tingkat Kecamatan Sukodono."
     },
     {
       "id": 6,
       "nama": "Musholla Sekolah",
       "kategori": "Olahraga & Ibadah",
-      "deskripsi": "Pusat pembinaan iman dan takwa, sholat dhuha, sholat berjamaah, serta kegiatan keagamaan siswa.",
-      "foto": ""
+      "deskripsi": "Pusat pembinaan iman dan takwa, sholat dhuha, sholat berjamaah, serta kegiatan keagamaan siswa."
     }
   ]
 }
