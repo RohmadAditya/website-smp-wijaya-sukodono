@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FacilityModal from '../components/FacilityModal.astro';
-import fasilitasData from '../content/data/fasilitas.json';
+import { fasilitasData } from '../utils/data';
 
 const allFacilities = fasilitasData.daftar;
 const categories = ['Semua', 'Akademik', 'Laboratorium', 'Olahraga & Ibadah'];

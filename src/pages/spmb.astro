@@ -1,12 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import spmbRaw from '../content/data/spmb.json';
-import pengaturan from '../content/data/pengaturan.json';
-import type { Spmb } from '../content.config';
+import { spmb, pengaturan } from '../utils/data';
 
-const spmb = spmbRaw as Spmb;
-
-const waNumber = spmb.pendaftaran.kontak_wa || pengaturan.kontak?.whatsapp || '6281234567890';
+const waNumber = spmb.pendaftaran.kontak_wa || pengaturan.kontak?.whatsapp || '6281331377724';
 const waMessage = encodeURIComponent(
   spmb.pendaftaran.pesan_wa || 'Halo Panitia SPMB SMP Wijaya Sukodono, saya ingin bertanya mengenai pendaftaran.'
 );
@@ -25,8 +21,11 @@ const waUrl = `https://wa.me/${waNumber}?text=${waMessage}`;
       src={spmb.hero.foto || '/images/hero/hero-ppdb.webp'}
       alt={`Penerimaan Peserta Didik Baru SPMB SMP Wijaya Sukodono Tahun Ajaran ${spmb.tahun_ajaran}`}
       class="absolute inset-0 w-full h-full object-cover object-center animate-hero-bg"
+      width="1920"
+      height="800"
       loading="eager"
       fetchpriority="high"
+      decoding="async"
     />
     <div class="absolute inset-0 bg-gradient-to-r from-ocean-950/95 via-ocean-950/90 to-ocean-900/80"></div>
     <div class="absolute inset-0 bg-ocean-950/40"></div>

@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import guruData from '../content/data/guru.json';
+import { guruData } from '../utils/data';
 import type { GuruItem } from '../content.config';
 
 const allGuru = (guruData.daftar || []) as GuruItem[];

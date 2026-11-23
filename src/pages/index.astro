@@ -1,21 +1,17 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
-import fasilitasJson from '../content/data/fasilitas.json';
-import guruJson from '../content/data/guru.json';
-import pengaturanRaw from '../content/data/pengaturan.json';
-import spmb from '../content/data/spmb.json';
+import { pengaturan, guruData, fasilitasData, spmb } from '../utils/data';
 import FacilityModal from '../components/FacilityModal.astro';
-import type { GuruItem, Pengaturan } from '../content.config';
+import type { GuruItem } from '../content.config';
 
-const pengaturan = pengaturanRaw as Pengaturan;
 const allBerita = await getCollection('berita', ({ data }) => !data.draft);
 const sortedBerita = allBerita
   .sort((a, b) => b.data.tanggal.getTime() - a.data.tanggal.getTime())
   .slice(0, 3);
 
-const featuredFacilities = (fasilitasJson.daftar || []).slice(0, 6);
-const pimpinanList = ((guruJson.daftar || []) as GuruItem[]).filter(
+const featuredFacilities = (fasilitasData.daftar || []).slice(0, 6);
+const pimpinanList = ((guruData.daftar || []) as GuruItem[]).filter(
   (g) => g.bidang?.toLowerCase() === 'pimpinan'
 );
 
@@ -37,8 +33,11 @@ function formatDate(date: Date) {
       src="/images/hero/hero-home.webp"
       alt="Gedung dan Lingkungan Kampus SMP Wijaya Sukodono"
       class="absolute inset-0 w-full h-full object-cover object-center animate-hero-bg"
+      width="1920"
+      height="1080"
       loading="eager"
       fetchpriority="high"
+      decoding="async"
     />
     <div class="absolute inset-0 bg-gradient-to-b from-ocean-950/85 via-ocean-950/80 to-ocean-950/95"></div>
 

@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import pengaturan from '../content/data/pengaturan.json';
+import { pengaturan } from '../utils/data';
 import * as profilData from '../content/data/profil.md';
 
 const { frontmatter, Content } = profilData;
@@ -21,8 +21,11 @@ const misi = Array.isArray(frontmatter.misi) && frontmatter.misi.length > 0 ? fr
       src="/images/hero/hero-profil.webp"
       alt="Sejarah Pengabdian dan Ruang Literasi SMP Wijaya Sukodono"
       class="absolute inset-0 w-full h-full object-cover object-center animate-hero-bg"
+      width="1920"
+      height="800"
       loading="eager"
       fetchpriority="high"
+      decoding="async"
     />
     <div class="absolute inset-0 bg-gradient-to-r from-ocean-950/95 via-ocean-950/90 to-ocean-900/80"></div>
     <div class="absolute inset-0 bg-ocean-950/40"></div>

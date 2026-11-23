@@ -39,5 +39,3 @@ npm run preview
 ## Dokumentasi Lengkap & SOP Operator
 
 Dokumentasi lengkap PRD, arsitektur GitOps, spesifikasi sistem desain, dan SOP Operator Tata Usaha siap cetak tersedia pada file [DOKUMENTASI.md](file:///Users/adit/Projects/website-smp-wijaya-sukodono/DOKUMENTASI.md).
-
-Prototipe interaktif mandiri untuk pengujian offline tersedia di [prototype/preview.html](file:///Users/adit/Projects/website-smp-wijaya-sukodono/prototype/preview.html).
